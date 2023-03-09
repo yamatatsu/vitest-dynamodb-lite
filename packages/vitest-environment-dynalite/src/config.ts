@@ -55,9 +55,13 @@ const readConfig = (): Config => {
     }
     return importedConfig;
   } catch (e) {
-    throw new Error(
-      `Something went wrong reading your ${configFile}: ${(e as Error).message}`
-    );
+    if (e instanceof Error) {
+      throw new Error(
+        `Something went wrong reading your ${configFile}: ${e.message}, ${e.stack}`
+      );
+    } else {
+      throw new Error(`Something went wrong reading your ${configFile}: ${e}`);
+    }
   }
 };
 
