@@ -3,12 +3,6 @@ name: release
 on:
   workflow_dispatch:
     inputs:
-      packageName:
-        description: Package Name
-        required: true
-        type: choice
-        options:
-          - y-dynamodb-for-sdkv3
       bumpType:
         description: Bump Type
         required: true
