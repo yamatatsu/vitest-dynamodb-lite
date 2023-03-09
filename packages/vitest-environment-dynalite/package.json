@@ -1,20 +1,39 @@
 {
   "name": "vitest-environment-dynalite",
-  "private": true,
   "version": "0.1.0",
+  "description": "Dynalite manager for vitest",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "scripts": {
-    "build": "unbuild",
-    "prepublishOnly": "pnpm build"
+  "author": "Tatsuya Yamamoto <the.kinnikuman@gmail.com> (https://github.com/yamatatsu)",
+  "license": "MIT",
+  "repository": "github:yamatatsu/vitest-environment-dynalite",
+  "bugs": {
+    "url": "https://github.com/yamatatsu/vitest-environment-dynalite/issues"
   },
+  "homepage": "https://github.com/yamatatsu/vitest-environment-dynalite/tree/main/packages/vitest-environment-dynalite#readme",
+  "keywords": [
+    "vitest",
+    "test",
+    "aws",
+    "amazon",
+    "dynamodb",
+    "dynalite",
+    "database"
+  ],
+  "files": [
+    "dist",
+    "lib"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "require": "./dist/index.cjs",
       "import": "./dist/index.mjs"
     }
+  },
+  "scripts": {
+    "build": "unbuild"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.282.0",
