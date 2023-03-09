@@ -22,7 +22,7 @@ export default <Environment>{
   name: "vitest-environment-dynalite",
   async setup(global: any, options: Record<string, any>) {
     const res = await builtinEnvironments.node.setup(global, options);
-    setEnvironmentVariables(global.__vitest_worker__.config.root);
+    await setEnvironmentVariables(global.__vitest_worker__.config.root);
 
     await start();
     return {

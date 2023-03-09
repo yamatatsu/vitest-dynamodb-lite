@@ -32,10 +32,10 @@ export const stop = async (): Promise<void> => {
 
 export const deleteTables = async (): Promise<void> => {
   const tablesNames = (await getTables()).map((table) => table.TableName);
-  await dynamodb.deleteTables(tablesNames, getDynalitePort());
+  await dynamodb.deleteTables(tablesNames, await getDynalitePort());
 };
 
 export const createTables = async (): Promise<void> => {
   const tables = await getTables();
-  await dynamodb.createTables(tables, getDynalitePort());
+  await dynamodb.createTables(tables, await getDynalitePort());
 };
