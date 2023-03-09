@@ -1,0 +1,14 @@
+{
+  "name": "typed-dynamodb",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "pnpm test:config && pnpm test:testfile",
+    "test:config": "pnpm test --filter './packages/test-for-setup-by-config'",
+    "test:testfile": "pnpm test --filter './packages/test-for-setup-by-testfile'"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.4"
+  }
+}
