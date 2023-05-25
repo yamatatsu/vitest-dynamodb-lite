@@ -10,6 +10,6 @@
     "test:testfile": "pnpm test --filter './packages/test-for-setup-by-testfile'"
   },
   "devDependencies": {
-    "prettier": "^2.8.4"
+    "prettier": "^2.8.8"
   }
 }
