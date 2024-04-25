@@ -20,6 +20,7 @@ export { createTables, deleteTables, useDynalite };
 
 export default <Environment>{
   name: "vitest-environment-dynalite",
+  transformMode: "web", // Add this line
   async setup(global: any, options: Record<string, any>) {
     const res = await builtinEnvironments.node.setup(global, options);
     await setEnvironmentVariables(global.__vitest_worker__.config.root);
