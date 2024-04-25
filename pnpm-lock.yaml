@@ -20,15 +20,6 @@ importers:
       '@aws-sdk/lib-dynamodb':
         specifier: ^3.282.0
         version: 3.282.0(@aws-sdk/client-dynamodb@3.282.0)(@aws-sdk/smithy-client@3.279.0)(@aws-sdk/types@3.272.0)
-      '@aws-sdk/smithy-client':
-        specifier: ^3.279.0
-        version: 3.279.0
-      '@aws-sdk/types':
-        specifier: ^3.272.0
-        version: 3.272.0
-      '@aws-sdk/util-dynamodb':
-        specifier: ^3.282.0
-        version: 3.282.0
       '@types/node':
         specifier: ^18.14.5
         version: 18.14.5
