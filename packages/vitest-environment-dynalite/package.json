@@ -41,12 +41,12 @@
     "dynalite": "^3.2.2"
   },
   "peerDependencies": {
-    "vitest": "0.x"
+    "vitest": "1.x"
   },
   "devDependencies": {
     "@types/node": "^18.14.5",
     "typescript": "^4.9.5",
     "unbuild": "^1.1.2",
-    "vitest": "0.x"
+    "vitest": "1.x"
   }
 }
