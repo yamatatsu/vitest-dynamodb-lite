@@ -39,7 +39,7 @@ const findConfigOrError = (
   return foundFile;
 };
 
-const readConfig = async (): Promise<Config> => {
+const readConfig = (): Config => {
   const configFile = findConfigOrError(
     process.env.VITEST_ENVIRONMENT_DYNALITE_CONFIG_DIRECTORY!
   );
@@ -49,7 +49,7 @@ const readConfig = async (): Promise<Config> => {
   );
 
   try {
-    const importedConfig = await import(file);
+    const importedConfig = eval(fs.readFileSync(file, "utf-8"));
     if ("default" in importedConfig) {
       return importedConfig.default;
     }
@@ -71,8 +71,8 @@ export const setConfigDir = (directory: string): void => {
   process.env.VITEST_ENVIRONMENT_DYNALITE_CONFIG_DIRECTORY = directory;
 };
 
-export const getDynalitePort = async (): Promise<number> => {
-  const { basePort = 8000 } = await readConfig();
+export const getDynalitePort = (): number => {
+  const { basePort = 8000 } = readConfig();
   if (Number.isInteger(basePort) && basePort > 0 && basePort <= 65535) {
     return basePort + parseInt(process.env.VITEST_WORKER_ID || "1", 10);
   }
@@ -91,7 +91,7 @@ export const getTables = async (): Promise<TableConfig[]> => {
     return tablesCache;
   }
 
-  const { tables: tablesConfig } = await readConfig();
+  const { tables: tablesConfig } = readConfig();
 
   if (isFunction(tablesConfig)) {
     tablesCache = await tablesConfig();

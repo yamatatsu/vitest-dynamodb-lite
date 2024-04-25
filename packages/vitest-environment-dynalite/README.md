@@ -22,7 +22,20 @@ pnpm add vitest-environment-dynalite -D
 
 ## Usage
 
-### Config file
+### 1. Set `setupFiles` in `vitest.config.ts`
+
+```js
+// vitest.config.ts
+import { defineConfig } from "vitest/config";
+
+export default defineConfig({
+  test: {
+    setupFiles: ["vitest-environment-dynalite"],
+  },
+});
+```
+
+### 2. Config file
 
 In your project root, create a `vitest-environment-dynalite-config.js` (or `.cjs` or `.ts`) with the tables schemas,
 and an optional `basePort` to run dynalite on:
@@ -89,7 +102,7 @@ module.exports = {
 };
 ```
 
-### Update your source code
+### 3. Update your source code
 
 ```javascript
 const client = new DynamoDBClient({
@@ -110,41 +123,6 @@ You can even do this by adding an `afterAll` in a [`setupFilesAfterEnv`](https:/
 afterAll(() => {
   client.destroy();
 });
-```
-
-### Set environment
-
-`vitest-environment-dynalite` uses vitest [Test Environment](https://vitest.dev/guide/environment.html#test-environment).
-
-#### With test files
-
-Add `@vitest-environment dynalite` to the top of your test files as following:
-
-```ts
-// @vitest-environment dynalite
-```
-
-#### With `vitest.config.js`
-
-```js
-// vitest.config.js
-import { defineConfig } from "vitest/config";
-
-export default defineConfig({
-  test: {
-    environment: "dynalite",
-  },
-});
-```
-
-### Setup fixture
-
-If you use fixture data, using `useDynalite()` is needed.
-
-```ts
-import { useDynalite } from "vitest-environment-dynalite";
-
-useDynalite();
 ```
 
 ## License

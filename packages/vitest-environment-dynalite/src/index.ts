@@ -1,36 +1,31 @@
-import { Environment, beforeAll, afterEach } from "vitest";
+import { beforeAll, afterEach, afterAll } from "vitest";
 
-import { builtinEnvironments } from "vitest/environments";
 import { setEnvironmentVariables } from "./setEnvironmentVariables";
 import { start, stop } from "./db";
 import { createTables, deleteTables } from "./db";
 
-const useDynalite = () => {
-  beforeAll(async () => {
-    await createTables();
-  });
+setEnvironmentVariables("");
 
-  afterEach(async () => {
-    await deleteTables();
-    await createTables();
-  });
-};
+beforeAll(async () => {
+  console.time("start_dynalite");
+  await start();
+  console.timeEnd("start_dynalite");
+  console.time("createTables");
+  await createTables();
+  console.timeEnd("createTables");
+});
 
-export { createTables, deleteTables, useDynalite };
+afterEach(async () => {
+  console.time("deleteTables");
+  await deleteTables();
+  console.timeEnd("deleteTables");
+  console.time("createTables");
+  await createTables();
+  console.timeEnd("createTables");
+});
 
-export default <Environment>{
-  name: "vitest-environment-dynalite",
-  transformMode: "web", // Add this line
-  async setup(global: any, options: Record<string, any>) {
-    const res = await builtinEnvironments.node.setup(global, options);
-    await setEnvironmentVariables(global.__vitest_worker__.config.root);
-
-    await start();
-    return {
-      async teardown() {
-        await stop();
-        await res.teardown(global);
-      },
-    };
-  },
-};
+afterAll(async () => {
+  console.time("stop_dynalite");
+  await stop();
+  console.timeEnd("stop_dynalite");
+});
