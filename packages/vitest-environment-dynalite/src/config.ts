@@ -5,12 +5,14 @@ import { isFunction } from "./utils";
 
 export const CONFIG_FILE_NAME = "vitest-environment-dynalite-config.js";
 export const CONFIG_FILE_NAME_CJS = "vitest-environment-dynalite-config.cjs";
+export const CONFIG_FILE_NAME_MJS = "vitest-environment-dynalite-config.mjs";
 export const CONFIG_FILE_NAME_TS = "vitest-environment-dynalite-config.ts";
+export const CONFIG_FILE_NAME_JSON = "vitest-environment-dynalite-config.json";
 
 export class NotFoundError extends Error {
   constructor(dir: string) {
     super(
-      `Could not find '${CONFIG_FILE_NAME}', '${CONFIG_FILE_NAME_CJS}' or '${CONFIG_FILE_NAME_TS}' in dir ${dir}`
+      `Could not find '${CONFIG_FILE_NAME}', '${CONFIG_FILE_NAME_CJS}', '${CONFIG_FILE_NAME_MJS}', '${CONFIG_FILE_NAME_TS}', or '${CONFIG_FILE_NAME_JSON}' in dir ${dir}`
     );
   }
 }
@@ -24,9 +26,11 @@ const findConfigOrError = (
 ):
   | typeof CONFIG_FILE_NAME
   | typeof CONFIG_FILE_NAME_CJS
-  | typeof CONFIG_FILE_NAME_TS => {
+  | typeof CONFIG_FILE_NAME_MJS
+  | typeof CONFIG_FILE_NAME_TS
+  | typeof CONFIG_FILE_NAME_JSON => {
   const foundFile = (
-    [CONFIG_FILE_NAME, CONFIG_FILE_NAME_CJS, CONFIG_FILE_NAME_TS] as const
+    [CONFIG_FILE_NAME, CONFIG_FILE_NAME_CJS, CONFIG_FILE_NAME_MJS, CONFIG_FILE_NAME_TS, CONFIG_FILE_NAME_JSON] as const
   ).find((config) => {
     const file = resolve(directory, config);
     return fs.existsSync(file);
@@ -49,6 +53,9 @@ const readConfig = (): Config => {
   );
 
   try {
+    if (file.endsWith(".json")) {
+      return JSON.parse(fs.readFileSync(file, "utf-8"));
+    }
     const importedConfig = eval(fs.readFileSync(file, "utf-8"));
     if ("default" in importedConfig) {
       return importedConfig.default;
