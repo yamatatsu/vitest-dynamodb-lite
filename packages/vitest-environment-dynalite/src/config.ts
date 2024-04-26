@@ -3,31 +3,29 @@ import { resolve } from "node:path";
 import { Config, TableConfig } from "./types";
 import { isFunction } from "./utils";
 
-export const CONFIG_FILE_NAME = "vitest-environment-dynalite-config.js";
-export const CONFIG_FILE_NAME_CJS = "vitest-environment-dynalite-config.cjs";
-export const CONFIG_FILE_NAME_MJS = "vitest-environment-dynalite-config.mjs";
-export const CONFIG_FILE_NAME_TS = "vitest-environment-dynalite-config.ts";
-export const CONFIG_FILE_NAME_JSON = "vitest-environment-dynalite-config.json";
+const CONFIG_FILE_NAME = "vitest-environment-dynalite-config.js";
+const CONFIG_FILE_NAME_CJS = "vitest-environment-dynalite-config.cjs";
+const CONFIG_FILE_NAME_MJS = "vitest-environment-dynalite-config.mjs";
+const CONFIG_FILE_NAME_JSON = "vitest-environment-dynalite-config.json";
+const CONFIG_FILE_NAMES = [
+  CONFIG_FILE_NAME,
+  CONFIG_FILE_NAME_CJS,
+  CONFIG_FILE_NAME_MJS,
+  CONFIG_FILE_NAME_JSON,
+] as const;
+
+type ConfigFileName = (typeof CONFIG_FILE_NAMES)[number];
 
 export class NotFoundError extends Error {
   constructor(dir: string) {
     super(
-      `Could not find '${CONFIG_FILE_NAME}', '${CONFIG_FILE_NAME_CJS}', '${CONFIG_FILE_NAME_MJS}', '${CONFIG_FILE_NAME_TS}', or '${CONFIG_FILE_NAME_JSON}' in dir ${dir}`
+      `Could not find '${CONFIG_FILE_NAME}', '${CONFIG_FILE_NAME_CJS}', '${CONFIG_FILE_NAME_MJS}' or '${CONFIG_FILE_NAME_JSON}' in dir ${dir}`
     );
   }
 }
 
-const findConfigOrError = (
-  directory: string
-):
-  | typeof CONFIG_FILE_NAME
-  | typeof CONFIG_FILE_NAME_CJS
-  | typeof CONFIG_FILE_NAME_MJS
-  | typeof CONFIG_FILE_NAME_TS
-  | typeof CONFIG_FILE_NAME_JSON => {
-  const foundFile = (
-    [CONFIG_FILE_NAME, CONFIG_FILE_NAME_CJS, CONFIG_FILE_NAME_MJS, CONFIG_FILE_NAME_TS, CONFIG_FILE_NAME_JSON] as const
-  ).find((config) => {
+const findConfigOrError = (directory: string): ConfigFileName => {
+  const foundFile = CONFIG_FILE_NAMES.find((config) => {
     const file = resolve(directory, config);
     return fs.existsSync(file);
   });
