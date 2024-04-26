@@ -1,7 +1,7 @@
 {
   "name": "vitest-dynamodb-lite",
   "version": "2.2.0",
-  "description": "Dynalite manager for vitest",
+  "description": "fast dynamodb mock on local for vitest",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
