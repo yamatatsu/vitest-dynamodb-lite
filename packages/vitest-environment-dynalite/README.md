@@ -37,69 +37,24 @@ export default defineConfig({
 
 ### 2. Config file
 
-In your project root, create a `vitest-environment-dynalite-config.js` (or `.cjs` or `.ts`) with the tables schemas,
+In your project root, create a `vitest-environment-dynalite-config.json` with the tables schemas,
 and an optional `basePort` to run dynalite on:
 
-```js
-// use export default for ts based configs
-module.exports = {
-  tables: [
+```json
+{
+  "tables": [
     {
-      TableName: "table",
-      KeySchema: [{ AttributeName: "id", KeyType: "HASH" }],
-      AttributeDefinitions: [{ AttributeName: "id", AttributeType: "S" }],
-      ProvisionedThroughput: {
-        ReadCapacityUnits: 1,
-        WriteCapacityUnits: 1,
-      },
-    },
-  ],
-  basePort: 8000,
-};
-```
-
-Some fixture data can be given to exist in the table before each test:
-
-```js
-module.exports = {
-  tables: [
-    {
-      TableName: "table",
-      KeySchema: [{ AttributeName: "id", KeyType: "HASH" }],
-      AttributeDefinitions: [{ AttributeName: "id", AttributeType: "S" }],
-      ProvisionedThroughput: {
-        ReadCapacityUnits: 1,
-        WriteCapacityUnits: 1,
-      },
-      data: [
-        {
-          id: "a",
-          someattribute: "hello world",
-        },
-      ],
-    },
-  ],
-  basePort: 8000,
-};
-```
-
-If you use fixture data, using `useDynalite()` is needed. see, [setup fixture](#setup-fixture).
-
-Your tables can also be resolved from an optionally async function:
-
-```js
-module.exports = {
-  // Please note, this function is resolved
-  // once per test file
-  tables: async () => {
-    const myTables = await someFunction();
-    if (myTables.find((table) => ...)) {
-      return someOtherFunction();
+      "TableName": "table",
+      "KeySchema": [{ "AttributeName": "id", "KeyType": "HASH" }],
+      "AttributeDefinitions": [{ "AttributeName": "id", "AttributeType": "S" }],
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 1,
+        "WriteCapacityUnits": 1
+      }
     }
-    return myTables;
-  },
-  basePort: 8000
-};
+  ],
+  "basePort": 8000
+}
 ```
 
 ### 3. Update your source code
@@ -123,6 +78,25 @@ You can even do this by adding an `afterAll` in a [`setupFilesAfterEnv`](https:/
 afterAll(() => {
   client.destroy();
 });
+```
+
+### [Optional] Using fixtures
+
+Some fixture data can be given before each test:
+
+`vitest-environment-dynalite-config.json`:
+
+```json
+{
+  "tables": [
+    {
+      ...,
+      "data": [
+        { "id": "a", "someattribute": "hello world" }
+      ]
+    }
+  ],
+}
 ```
 
 ## License
