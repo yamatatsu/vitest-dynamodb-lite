@@ -37,8 +37,12 @@ export default defineConfig({
 
 ### 2. Config file
 
-In your project root, create a `vitest-environment-dynalite-config.json` with the tables schemas,
-and an optional `basePort` to run dynalite on:
+In your project root, create a config file with the tables schemas,
+and an optional `basePort` to run dynalite on.
+
+The config file can be written in either `json`, `js` or `cjs` format.
+
+In `json`:
 
 ```json
 {
@@ -55,6 +59,14 @@ and an optional `basePort` to run dynalite on:
   ],
   "basePort": 8000
 }
+```
+
+In `js` or `cjs`:
+
+```js
+module.exports = {
+  // your configures
+};
 ```
 
 ### 3. Update your source code
