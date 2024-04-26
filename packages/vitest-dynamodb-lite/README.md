@@ -4,7 +4,7 @@ vitest-dynamodb-lite is a fast concurrent-safe DynamoDB mock for testing with vi
 
 ![concurrent-test](https://github.com/yamatatsu/vitest-dynamodb-lite/assets/11013683/d46ec607-71b2-478b-ae5b-686624c54015)
 
-In this movie, seven test files are running concurrently without launch any dynamodb server manually.
+In this movie, 16 test files are running concurrently without launch any dynamodb server manually.
 Each dynamodb server is launched in time of running each test file.
 
 vitest-dynamodb-lite runs local dynamodb server for each test cases, so it is safe to run tests concurrently.
