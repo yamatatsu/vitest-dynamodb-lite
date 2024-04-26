@@ -1,5 +1,9 @@
 # vitest-environment-dynalite
 
+> :warning: **This library was renamed to `vitest-dynamodb-lite`.**  
+> Because after v2.0.0, vitest-environment-dynalite does not use
+> [vitest environment](https://vitest.dev/guide/environment.html).
+
 Rewritten from [jest-dynalite](https://github.com/freshollie/jest-dynalite) to use in vitest.
 
 ## Features
