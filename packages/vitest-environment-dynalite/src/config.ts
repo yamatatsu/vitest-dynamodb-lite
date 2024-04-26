@@ -17,10 +17,6 @@ export class NotFoundError extends Error {
   }
 }
 
-if (!process.env.VITEST_ENVIRONMENT_DYNALITE_CONFIG_DIRECTORY) {
-  process.env.VITEST_ENVIRONMENT_DYNALITE_CONFIG_DIRECTORY = process.cwd();
-}
-
 const findConfigOrError = (
   directory: string
 ):
@@ -44,13 +40,9 @@ const findConfigOrError = (
 };
 
 const readConfig = (): Config => {
-  const configFile = findConfigOrError(
-    process.env.VITEST_ENVIRONMENT_DYNALITE_CONFIG_DIRECTORY!
-  );
-  const file = resolve(
-    process.env.VITEST_ENVIRONMENT_DYNALITE_CONFIG_DIRECTORY!,
-    configFile
-  );
+  const rootDir = process.cwd();
+  const configFile = findConfigOrError(rootDir);
+  const file = resolve(rootDir, configFile);
 
   try {
     if (file.endsWith(".json")) {
@@ -70,12 +62,6 @@ const readConfig = (): Config => {
       throw new Error(`Something went wrong reading your ${configFile}: ${e}`);
     }
   }
-};
-
-export const setConfigDir = (directory: string): void => {
-  // Only allow this directory to be set if a config exists
-  findConfigOrError(directory);
-  process.env.VITEST_ENVIRONMENT_DYNALITE_CONFIG_DIRECTORY = directory;
 };
 
 export const getDynalitePort = (): number => {

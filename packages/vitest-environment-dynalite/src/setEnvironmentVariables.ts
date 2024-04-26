@@ -1,8 +1,6 @@
-import { setConfigDir, getDynalitePort } from "./config";
+import { getDynalitePort } from "./config";
 
-export const setEnvironmentVariables = (withConfigDir: string): void => {
-  setConfigDir(withConfigDir);
-
+export const setEnvironmentVariables = (): void => {
   const port = getDynalitePort();
 
   // Provide environment variables before other scripts are executed

@@ -1,10 +1,9 @@
 import { beforeAll, afterEach, afterAll } from "vitest";
 
 import { setEnvironmentVariables } from "./setEnvironmentVariables";
-import { start, stop } from "./db";
-import { createTables, deleteTables } from "./db";
+import { start, stop, createTables, deleteTables } from "./db";
 
-setEnvironmentVariables("");
+setEnvironmentVariables();
 
 beforeAll(async () => {
   await start();
