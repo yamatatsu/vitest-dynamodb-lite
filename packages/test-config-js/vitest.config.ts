@@ -2,6 +2,6 @@ import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   test: {
-    setupFiles: ["vitest-environment-dynalite"],
+    setupFiles: ["vitest-dynamodb-lite"],
   },
 });

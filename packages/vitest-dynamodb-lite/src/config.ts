@@ -3,10 +3,10 @@ import { resolve } from "node:path";
 import { Config, TableConfig } from "./types";
 import { isFunction } from "./utils";
 
-const CONFIG_FILE_NAME = "vitest-environment-dynalite-config.js";
-const CONFIG_FILE_NAME_CJS = "vitest-environment-dynalite-config.cjs";
-const CONFIG_FILE_NAME_MJS = "vitest-environment-dynalite-config.mjs";
-const CONFIG_FILE_NAME_JSON = "vitest-environment-dynalite-config.json";
+const CONFIG_FILE_NAME = "vitest-dynamodb-lite-config.js";
+const CONFIG_FILE_NAME_CJS = "vitest-dynamodb-lite-config.cjs";
+const CONFIG_FILE_NAME_MJS = "vitest-dynamodb-lite-config.mjs";
+const CONFIG_FILE_NAME_JSON = "vitest-dynamodb-lite-config.json";
 const CONFIG_FILE_NAMES = [
   CONFIG_FILE_NAME,
   CONFIG_FILE_NAME_CJS,
@@ -92,7 +92,7 @@ export const getTables = async (): Promise<TableConfig[]> => {
 
   if (!Array.isArray(tablesCache)) {
     throw new Error(
-      "vitest-environment-dynalite requires that the tables configuration is an array"
+      "vitest-dynamodb-lite requires that the tables configuration is an array"
     );
   }
 

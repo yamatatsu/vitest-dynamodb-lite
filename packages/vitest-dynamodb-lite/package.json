@@ -1,5 +1,5 @@
 {
-  "name": "vitest-environment-dynalite",
+  "name": "vitest-dynamodb-lite",
   "version": "2.2.0",
   "description": "Dynalite manager for vitest",
   "main": "./dist/index.cjs",
@@ -7,11 +7,11 @@
   "types": "./dist/index.d.ts",
   "author": "Tatsuya Yamamoto <the.kinnikuman@gmail.com> (https://github.com/yamatatsu)",
   "license": "MIT",
-  "repository": "github:yamatatsu/vitest-environment-dynalite",
+  "repository": "github:yamatatsu/vitest-dynamodb-lite",
   "bugs": {
-    "url": "https://github.com/yamatatsu/vitest-environment-dynalite/issues"
+    "url": "https://github.com/yamatatsu/vitest-dynamodb-lite/issues"
   },
-  "homepage": "https://github.com/yamatatsu/vitest-environment-dynalite/tree/main/packages/vitest-environment-dynalite#readme",
+  "homepage": "https://github.com/yamatatsu/vitest-dynamodb-lite/tree/main/packages/vitest-dynamodb-lite#readme",
   "keywords": [
     "vitest",
     "test",

@@ -1,4 +1,4 @@
-# vitest-environment-dynalite
+# vitest-dynamodb-lite
 
 Rewritten from [jest-dynalite](https://github.com/freshollie/jest-dynalite) to use in vitest.
 
@@ -13,11 +13,11 @@ Rewritten from [jest-dynalite](https://github.com/freshollie/jest-dynalite) to u
 ## Installation
 
 ```bash
-npm i vitest-environment-dynalite -D
+npm i vitest-dynamodb-lite -D
 # or
-yarn add vitest-environment-dynalite -D
+yarn add vitest-dynamodb-lite -D
 # or
-pnpm add vitest-environment-dynalite -D
+pnpm add vitest-dynamodb-lite -D
 ```
 
 ## Usage
@@ -30,7 +30,7 @@ import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   test: {
-    setupFiles: ["vitest-environment-dynalite"],
+    setupFiles: ["vitest-dynamodb-lite"],
   },
 });
 ```
@@ -96,7 +96,7 @@ afterAll(() => {
 
 Some fixture data can be given before each test:
 
-`vitest-environment-dynalite-config.json`:
+`vitest-dynamodb-lite-config.json`:
 
 ```json
 {
@@ -116,7 +116,7 @@ Some fixture data can be given before each test:
 If you face any error in closing db, you can enable debug mode to see the error:
 
 ```
-VITEST_ENVIRONMENT_DYNALITE_DEBUG_CLOSING_DB=true npx vitest
+VITEST_DYNAMODB_LITE_DEBUG_CLOSING_DB=true npx vitest
 ```
 
 ## License

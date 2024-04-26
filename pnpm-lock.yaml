@@ -29,9 +29,9 @@ importers:
       vitest:
         specifier: 1.5.2
         version: 1.5.2(@types/node@18.14.5)
-      vitest-environment-dynalite:
-        specifier: workspace:../vitest-environment-dynalite
-        version: link:../vitest-environment-dynalite
+      vitest-dynamodb-lite:
+        specifier: workspace:../vitest-dynamodb-lite
+        version: link:../vitest-dynamodb-lite
 
   packages/test-config-cjs:
     devDependencies:
@@ -50,9 +50,9 @@ importers:
       vitest:
         specifier: 1.5.2
         version: 1.5.2(@types/node@18.14.5)
-      vitest-environment-dynalite:
-        specifier: workspace:../vitest-environment-dynalite
-        version: link:../vitest-environment-dynalite
+      vitest-dynamodb-lite:
+        specifier: workspace:../vitest-dynamodb-lite
+        version: link:../vitest-dynamodb-lite
 
   packages/test-config-js:
     devDependencies:
@@ -71,9 +71,9 @@ importers:
       vitest:
         specifier: 1.5.2
         version: 1.5.2(@types/node@18.14.5)
-      vitest-environment-dynalite:
-        specifier: workspace:../vitest-environment-dynalite
-        version: link:../vitest-environment-dynalite
+      vitest-dynamodb-lite:
+        specifier: workspace:../vitest-dynamodb-lite
+        version: link:../vitest-dynamodb-lite
 
   packages/test-config-json:
     devDependencies:
@@ -92,9 +92,9 @@ importers:
       vitest:
         specifier: 1.5.2
         version: 1.5.2(@types/node@18.14.5)
-      vitest-environment-dynalite:
-        specifier: workspace:../vitest-environment-dynalite
-        version: link:../vitest-environment-dynalite
+      vitest-dynamodb-lite:
+        specifier: workspace:../vitest-dynamodb-lite
+        version: link:../vitest-dynamodb-lite
 
   packages/test-config-mjs:
     devDependencies:
@@ -113,11 +113,11 @@ importers:
       vitest:
         specifier: 1.5.2
         version: 1.5.2(@types/node@18.14.5)
-      vitest-environment-dynalite:
-        specifier: workspace:../vitest-environment-dynalite
-        version: link:../vitest-environment-dynalite
+      vitest-dynamodb-lite:
+        specifier: workspace:../vitest-dynamodb-lite
+        version: link:../vitest-dynamodb-lite
 
-  packages/vitest-environment-dynalite:
+  packages/vitest-dynamodb-lite:
     dependencies:
       '@aws-sdk/client-dynamodb':
         specifier: ^3.282.0
@@ -1195,11 +1195,6 @@ packages:
   fs.realpath@1.0.0:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
 
-  fsevents@2.3.2:
-    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
-    engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
-    os: [darwin]
-
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
@@ -1436,9 +1431,6 @@ packages:
       typescript:
         optional: true
 
-  mlly@1.1.1:
-    resolution: {integrity: sha512-Jnlh4W/aI4GySPo6+DyTN17Q75KKbLTyFK8BrGhjNP4rxuUjbRWhE6gHg3bs33URWAF44FRm7gdQA348i3XxRw==}
-
   mlly@1.3.0:
     resolution: {integrity: sha512-HT5mcgIQKkOrZecOjOX3DJorTikWXwsBfpcr/MGBkhfWcjiqvnaL/9ppxvIUXfjT6xt4DVIAsN9fMUz1ev4bIw==}
 
@@ -1518,9 +1510,6 @@ packages:
   picomatch@2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
-
-  pkg-types@1.0.2:
-    resolution: {integrity: sha512-hM58GKXOcj8WTqUXnsQyJYXdeAPbythQgEF3nTcEo+nkD49chjQ9IKm/QJy9xf6JakXptz86h7ecP2024rrLaQ==}
 
   pkg-types@1.0.3:
     resolution: {integrity: sha512-nN7pYi0AQqJnoLPC9eHFQ8AcyaixBUOwvqc5TDnIKCMEE6I0y8P7OKA7fPexsXGCGxQDl/cmrLAp26LhcwxZ4A==}
@@ -1684,9 +1673,6 @@ packages:
     resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
     engines: {node: '>=4.2.0'}
     hasBin: true
-
-  ufo@1.1.1:
-    resolution: {integrity: sha512-MvlCc4GHrmZdAllBc0iUDowff36Q9Ndw/UzqmEKyrfSzokTd9ZCy1i+IIk5hrYKkjoYVQyNbrw7/F8XJ2rEwTg==}
 
   ufo@1.1.2:
     resolution: {integrity: sha512-TrY6DsjTQQgyS3E3dBaOXf0TpPD8u9FVrVYmKVegJuFw51n/YB9XPt+U6ydzFG5ZIN7+DIjPbNmXoBj9esYhgQ==}
@@ -2645,12 +2631,12 @@ snapshots:
   '@jridgewell/gen-mapping@0.1.1':
     dependencies:
       '@jridgewell/set-array': 1.1.2
-      '@jridgewell/sourcemap-codec': 1.4.14
+      '@jridgewell/sourcemap-codec': 1.4.15
 
   '@jridgewell/gen-mapping@0.3.2':
     dependencies:
       '@jridgewell/set-array': 1.1.2
-      '@jridgewell/sourcemap-codec': 1.4.14
+      '@jridgewell/sourcemap-codec': 1.4.15
       '@jridgewell/trace-mapping': 0.3.17
 
   '@jridgewell/resolve-uri@3.1.0': {}
@@ -2721,7 +2707,7 @@ snapshots:
 
   '@rollup/pluginutils@5.0.2(rollup@3.18.0)':
     dependencies:
-      '@types/estree': 1.0.0
+      '@types/estree': 1.0.5
       estree-walker: 2.0.2
       picomatch: 2.3.1
     optionalDependencies:
@@ -3078,9 +3064,6 @@ snapshots:
 
   fs.realpath@1.0.0: {}
 
-  fsevents@2.3.2:
-    optional: true
-
   fsevents@2.3.3:
     optional: true
 
@@ -3163,7 +3146,7 @@ snapshots:
 
   is-reference@1.2.1:
     dependencies:
-      '@types/estree': 1.0.0
+      '@types/estree': 1.0.5
 
   is-stream@3.0.0: {}
 
@@ -3249,11 +3232,11 @@ snapshots:
 
   magic-string@0.27.0:
     dependencies:
-      '@jridgewell/sourcemap-codec': 1.4.14
+      '@jridgewell/sourcemap-codec': 1.4.15
 
   magic-string@0.29.0:
     dependencies:
-      '@jridgewell/sourcemap-codec': 1.4.14
+      '@jridgewell/sourcemap-codec': 1.4.15
 
   magic-string@0.30.10:
     dependencies:
@@ -3293,16 +3276,9 @@ snapshots:
       globby: 13.1.3
       jiti: 1.17.1
       mri: 1.2.0
-      pathe: 1.1.0
+      pathe: 1.1.2
     optionalDependencies:
       typescript: 4.9.5
-
-  mlly@1.1.1:
-    dependencies:
-      acorn: 8.8.2
-      pathe: 1.1.0
-      pkg-types: 1.0.2
-      ufo: 1.1.1
 
   mlly@1.3.0:
     dependencies:
@@ -3372,12 +3348,6 @@ snapshots:
 
   picomatch@2.3.1: {}
 
-  pkg-types@1.0.2:
-    dependencies:
-      jsonc-parser: 3.2.0
-      mlly: 1.1.1
-      pathe: 1.1.0
-
   pkg-types@1.0.3:
     dependencies:
       jsonc-parser: 3.2.0
@@ -3432,7 +3402,7 @@ snapshots:
 
   rollup@3.18.0:
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
 
   rollup@4.16.4:
     dependencies:
@@ -3531,8 +3501,6 @@ snapshots:
 
   typescript@4.9.5: {}
 
-  ufo@1.1.1: {}
-
   ufo@1.1.2: {}
 
   ufo@1.5.3: {}
@@ -3554,10 +3522,10 @@ snapshots:
       jiti: 1.17.1
       magic-string: 0.29.0
       mkdist: 1.1.1(typescript@4.9.5)
-      mlly: 1.1.1
+      mlly: 1.6.1
       mri: 1.2.0
-      pathe: 1.1.0
-      pkg-types: 1.0.2
+      pathe: 1.1.2
+      pkg-types: 1.0.3
       pretty-bytes: 6.1.0
       rollup: 3.18.0
       rollup-plugin-dts: 5.2.0(rollup@3.18.0)(typescript@4.9.5)

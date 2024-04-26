@@ -1,3 +1,3 @@
-# vitest-environment-dynalite
+# vitest-dynamodb-lite
 
-See [the package](packages/vitest-environment-dynalite#readme).
+See [the package](packages/vitest-dynamodb-lite#readme).

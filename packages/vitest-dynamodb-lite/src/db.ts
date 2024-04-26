@@ -33,7 +33,7 @@ export const stop = async (): Promise<void> => {
         resolve();
       })
     );
-    if (process.env.VITEST_ENVIRONMENT_DYNALITE_DEBUG_CLOSING_DB) {
+    if (process.env.VITEST_DYNAMODB_LITE_DEBUG_CLOSING_DB) {
       await closingPromise;
     }
   }
