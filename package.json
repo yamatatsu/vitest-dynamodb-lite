@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "pnpm --filter vitest-environment-dynalite build",
-    "test": "pnpm run -r test"
+    "test": "pnpm run --filter '!./packages/test-config-mjs' test"
   },
   "devDependencies": {
     "prettier": "^2.8.8"
