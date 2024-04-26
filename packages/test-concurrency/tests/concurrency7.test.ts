@@ -1,3 +1,4 @@
+import { randomUUID } from "node:crypto";
 import { test, expect } from "vitest";
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocument } from "@aws-sdk/lib-dynamodb";
@@ -18,13 +19,14 @@ test("config/get-fixture-data", async () => {
 });
 
 test("config/get-inserted-data", async () => {
+  const randomValue = randomUUID();
   await dynamodb.put({
     TableName: "pk-string-table",
-    Item: { pk_string: "pk-10" },
+    Item: { pk_string: "pk-10", randomValue },
   });
   const { Item } = await dynamodb.get({
     TableName: "pk-string-table",
     Key: { pk_string: "pk-10" },
   });
-  expect(Item).toEqual({ pk_string: "pk-10" });
+  expect(Item).toEqual({ pk_string: "pk-10", randomValue });
 });
