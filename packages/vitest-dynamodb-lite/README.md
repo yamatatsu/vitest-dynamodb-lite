@@ -1,6 +1,19 @@
 # vitest-dynamodb-lite
 
-Rewritten from [jest-dynalite](https://github.com/freshollie/jest-dynalite) to use in vitest.
+vitest-dynamodb-lite is a fast concurrent-safe DynamoDB mock for testing with vitest.
+
+https://github.com/yamatatsu/vitest-dynamodb-lite/assets/11013683/f80d0b31-e234-47b7-957d-6167ec68a495
+
+In this movie, seven test files are running concurrently without launch any dynamodb server manually.
+Each dynamodb server is launched in time of running each test file.
+
+vitest-dynamodb-lite runs local dynamodb server for each test cases, so it is safe to run tests concurrently.
+Actually, these test cases in this movie put and get an item for same table-name and same key but different dynamodb server concurrently.
+
+vitest-dynamodb-lite uses [dynalite](https://github.com/architect/dynalite#readme) instead of [DynamoDB Local](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html) to run DynamoDB locally.
+
+This repository was forked from [jest-dynalite](https://github.com/freshollie/jest-dynalite) to use in vitest,
+and added some performance improvements.
 
 ## Features
 
@@ -98,17 +111,15 @@ Some fixture data can be given before each test:
 
 `vitest-dynamodb-lite-config.json`:
 
-```json
-{
-  "tables": [
+```js
+module.exports = {
+  tables: [
     {
-      ...,
-      "data": [
-        { "id": "a", "someattribute": "hello world" }
-      ]
-    }
+      // ...
+      data: [{ id: "a", someattribute: "hello world" }],
+    },
   ],
-}
+};
 ```
 
 ### Debug errors
