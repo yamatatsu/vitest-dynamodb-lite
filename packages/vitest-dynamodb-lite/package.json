@@ -1,6 +1,6 @@
 {
   "name": "vitest-dynamodb-lite",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "description": "fast dynamodb mock on local for vitest",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
