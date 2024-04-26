@@ -111,6 +111,14 @@ Some fixture data can be given before each test:
 }
 ```
 
+### Debug errors
+
+If you face any error in closing db, you can enable debug mode to see the error:
+
+```
+VITEST_ENVIRONMENT_DYNALITE_DEBUG_CLOSING_DB=true npx vitest
+```
+
 ## License
 
 `MIT`

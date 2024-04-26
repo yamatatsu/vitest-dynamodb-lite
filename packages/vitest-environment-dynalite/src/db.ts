@@ -24,18 +24,27 @@ export const stop = async (): Promise<void> => {
   dynamodb.killConnection();
 
   if (dynaliteInstance.listening) {
-    await new Promise<void>((resolve) =>
-      dynaliteInstance.close(() => resolve())
+    const closingPromise = new Promise<void>((resolve) =>
+      dynaliteInstance.close((err: unknown) => {
+        if (err) {
+          console.error(err);
+        }
+        console.info("closing success");
+        resolve();
+      })
     );
+    if (process.env.VITEST_ENVIRONMENT_DYNALITE_DEBUG_CLOSING_DB) {
+      await closingPromise;
+    }
   }
 };
 
 export const deleteTables = async (): Promise<void> => {
   const tablesNames = (await getTables()).map((table) => table.TableName);
-  await dynamodb.deleteTables(tablesNames, await getDynalitePort());
+  await dynamodb.deleteTables(tablesNames, getDynalitePort());
 };
 
 export const createTables = async (): Promise<void> => {
   const tables = await getTables();
-  await dynamodb.createTables(tables, await getDynalitePort());
+  await dynamodb.createTables(tables, getDynalitePort());
 };
