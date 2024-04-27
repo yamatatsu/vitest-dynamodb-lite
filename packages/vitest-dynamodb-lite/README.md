@@ -4,22 +4,23 @@ vitest-dynamodb-lite is a fast concurrent-safe DynamoDB mock for testing with vi
 
 ![concurrent-test](https://github.com/yamatatsu/vitest-dynamodb-lite/assets/11013683/d46ec607-71b2-478b-ae5b-686624c54015)
 
-In this gif, 16 test files are running concurrently without launch any dynamodb server manually.
-Each dynamodb server is launched in time of running each test file.
+In this gif, 16 test files are running concurrently without launching any dynamodb server manually.
+Each dynamodb server is launched at the time of running each test file.
 
-vitest-dynamodb-lite runs local dynamodb server for each test cases, so it is safe to run tests concurrently.
-These test cases in this gif perform PUT and GET an item for same table-name and same key but different dynamodb server concurrently.
+vitest-dynamodb-lite runs a local dynamodb server for each test case, so it is safe to run tests concurrently.
+These test cases in this gif perform PUT and GET an item for the same table name and the same key but different dynamodb servers concurrently.
 
-vitest-dynamodb-lite uses [dynalite](https://github.com/architect/dynalite#readme) instead of [DynamoDB Local](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html) to run DynamoDB locally.
+vitest-dynamodb-lite uses [dynalite](https://github.com/architect/dynalite#readme) instead of
+[DynamoDB Local](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html) to run DynamoDB locally.
 
-This repository was forked from [jest-dynalite](https://github.com/freshollie/jest-dynalite) to use in vitest,
+This repository was forked from [jest-dynalite](https://github.com/freshollie/jest-dynalite) to use in vitest
 and added some performance improvements.
 
 ## Features
 
 - Optionally clear tables between tests
 - Isolated tables between test runners
-- Ability to specify config directory
+- Ability to specify a config directory
 - No `java` requirement
 - Works with only `@aws-sdk/client-dynamodb` instead of `aws-sdk`
 
@@ -53,7 +54,7 @@ export default defineConfig({
 In your project root, create a config file with the tables schemas,
 and an optional `basePort` to run dynalite on.
 
-The config file can be written in either `json`, `js` or `cjs` format.
+The config file can be written in either `json`, `js`, or `cjs` format.
 
 In `json`:
 
