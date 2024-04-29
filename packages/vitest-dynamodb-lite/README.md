@@ -1,11 +1,11 @@
 # vitest-dynamodb-lite
 
-vitest-dynamodb-lite is a fast concurrent-safe DynamoDB mock for testing with vitest.
+vitest-dynamodb-lite is a fast, concurrent-safe DynamoDB mock for testing with vitest.
 
 ![concurrent-test](https://github.com/yamatatsu/vitest-dynamodb-lite/assets/11013683/d46ec607-71b2-478b-ae5b-686624c54015)
 
-In this gif, 16 test files are running concurrently without launching any dynamodb server manually.
-Each dynamodb server is launched at the time of running each test file.
+In this gif, 16 test files run concurrently without manually launching any dynamodb server.
+Each dynamodb server is launched when each test file is executed.
 
 vitest-dynamodb-lite runs a local dynamodb server for each test case, so it is safe to run tests concurrently.
 These test cases in this gif perform PUT and GET an item for the same table name and the same key but different dynamodb servers concurrently.
@@ -51,10 +51,9 @@ export default defineConfig({
 
 ### 2. Config file
 
-In your project root, create a config file with the tables schemas,
-and an optional `basePort` to run dynalite on.
+In your project root, create a config file with the tables schemas, and an optional `basePort` to run dynalite on.
 
-The config file can be written in either `json`, `js`, or `cjs` format.
+You can write the config file in either `json`, `js`, or `cjs` format.
 
 In `json`:
 
@@ -108,7 +107,7 @@ afterAll(() => {
 
 ### [Optional] Using fixtures
 
-Some fixture data can be given before each test:
+You can set some fixture data before each test:
 
 `vitest-dynamodb-lite-config.json`:
 
@@ -125,7 +124,7 @@ module.exports = {
 
 ### Debug errors
 
-If you face any error in closing db, you can enable debug mode to see the error:
+If you face any error in closing db, you can debug mode to see the error:
 
 ```
 VITEST_DYNAMODB_LITE_DEBUG_CLOSING_DB=true npx vitest
