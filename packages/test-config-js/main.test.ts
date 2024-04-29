@@ -6,7 +6,7 @@ const dynamodb = DynamoDBDocument.from(
   new DynamoDBClient({
     endpoint: process.env.MOCK_DYNAMODB_ENDPOINT,
     region: "local",
-  })
+  }),
 );
 
 test("config/get-fixture-data", async () => {

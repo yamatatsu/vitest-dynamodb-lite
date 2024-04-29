@@ -19,7 +19,7 @@ type ConfigFileName = (typeof CONFIG_FILE_NAMES)[number];
 export class NotFoundError extends Error {
   constructor(dir: string) {
     super(
-      `Could not find '${CONFIG_FILE_NAME}', '${CONFIG_FILE_NAME_CJS}', '${CONFIG_FILE_NAME_MJS}' or '${CONFIG_FILE_NAME_JSON}' in dir ${dir}`
+      `Could not find '${CONFIG_FILE_NAME}', '${CONFIG_FILE_NAME_CJS}', '${CONFIG_FILE_NAME_MJS}' or '${CONFIG_FILE_NAME_JSON}' in dir ${dir}`,
     );
   }
 }
@@ -54,7 +54,7 @@ const readConfig = (): Config => {
   } catch (e) {
     if (e instanceof Error) {
       throw new Error(
-        `Something went wrong reading your ${configFile}: ${e.message}, ${e.stack}`
+        `Something went wrong reading your ${configFile}: ${e.message}, ${e.stack}`,
       );
     } else {
       throw new Error(`Something went wrong reading your ${configFile}: ${e}`);
@@ -69,7 +69,7 @@ export const getDynalitePort = (): number => {
   }
 
   throw new TypeError(
-    `Option "basePort" must be an number between 1 and 65535. Received "${basePort.toString()}"`
+    `Option "basePort" must be an number between 1 and 65535. Received "${basePort.toString()}"`,
   );
 };
 
@@ -92,7 +92,7 @@ export const getTables = async (): Promise<TableConfig[]> => {
 
   if (!Array.isArray(tablesCache)) {
     throw new Error(
-      "vitest-dynamodb-lite requires that the tables configuration is an array"
+      "vitest-dynamodb-lite requires that the tables configuration is an array",
     );
   }
 

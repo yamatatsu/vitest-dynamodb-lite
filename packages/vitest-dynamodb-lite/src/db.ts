@@ -12,7 +12,7 @@ export const dynaliteInstance = dynalite({
 export const start = async (): Promise<void> => {
   if (!dynaliteInstance.listening) {
     await new Promise<void>((resolve) =>
-      dynaliteInstance.listen(process.env.MOCK_DYNAMODB_PORT, resolve)
+      dynaliteInstance.listen(process.env.MOCK_DYNAMODB_PORT, resolve),
     );
   }
 };
@@ -31,7 +31,7 @@ export const stop = async (): Promise<void> => {
         }
         console.info("closing success");
         resolve();
-      })
+      }),
     );
     if (process.env.VITEST_DYNAMODB_LITE_DEBUG_CLOSING_DB) {
       await closingPromise;

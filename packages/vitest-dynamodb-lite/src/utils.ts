@@ -8,7 +8,7 @@ export const isFunction = <F>(f: unknown | (() => F)): f is () => F =>
 
 const convertToNumbers = (
   keys: Array<string | number | symbol>,
-  value: string | number
+  value: string | number,
 ): number | string => {
   if (!Number.isNaN(Number(value)) && keys.some((v) => v === Number(value))) {
     return Number(value);
@@ -26,7 +26,7 @@ export const omit = <T extends object, K extends [...(keyof T)[]]>(
     .concat(
       Object.keys(obj).map((key) => convertToNumbers(keys, key)) as Array<
         keyof T
-      >
+      >,
     )
     .filter((key) => !keys.includes(key))
     .reduce((agg, key) => ({ ...agg, [key]: obj[key] }), {}) as {
@@ -49,7 +49,7 @@ const detectUsingFakeTimers = (): boolean => {
 
 // stolen from https://github.com/testing-library/dom-testing-library/blob/master/src/helpers.js
 export const runWithRealTimers = <T, R>(
-  callback: () => T | Promise<R>
+  callback: () => T | Promise<R>,
 ): T | Promise<R> => {
   const usingFakeTimers = detectUsingFakeTimers();
 

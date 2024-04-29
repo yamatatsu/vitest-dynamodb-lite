@@ -28,7 +28,7 @@ const dbConnection = (port: number): Connection => {
 
 const waitForTable = async (
   client: DynamoDB,
-  tableName: string
+  tableName: string,
 ): Promise<void> => {
   // eslint-disable-next-line no-constant-condition
   while (true) {
@@ -52,7 +52,7 @@ const waitForTable = async (
  */
 const waitForDeleted = async (
   client: DynamoDB,
-  tableName: string
+  tableName: string,
 ): Promise<void> => {
   // eslint-disable-next-line no-constant-condition
   while (true) {
@@ -72,33 +72,33 @@ const waitForDeleted = async (
 
 export const deleteTables = (
   tableNames: string[],
-  port: number
+  port: number,
 ): Promise<void> =>
   runWithRealTimers(async () => {
     const { dynamoDB } = dbConnection(port);
     await Promise.all(
       tableNames.map((table) =>
-        dynamoDB.deleteTable({ TableName: table }).catch(() => {})
-      )
+        dynamoDB.deleteTable({ TableName: table }).catch(() => {}),
+      ),
     );
     await Promise.all(
-      tableNames.map((table) => waitForDeleted(dynamoDB, table))
+      tableNames.map((table) => waitForDeleted(dynamoDB, table)),
     );
   });
 
 export const createTables = (
   tables: TableConfig[],
-  port: number
+  port: number,
 ): Promise<void> =>
   runWithRealTimers(async () => {
     const { dynamoDB } = dbConnection(port);
 
     await Promise.all(
-      tables.map((table) => dynamoDB.createTable(omit(table, "data")))
+      tables.map((table) => dynamoDB.createTable(omit(table, "data"))),
     );
 
     await Promise.all(
-      tables.map((table) => waitForTable(dynamoDB, table.TableName))
+      tables.map((table) => waitForTable(dynamoDB, table.TableName)),
     );
     await Promise.all(
       tables.map(
@@ -115,12 +115,12 @@ export const createTables = (
                   throw new Error(
                     `Could not add ${JSON.stringify(row)} to "${
                       table.TableName
-                    }": ${e.message}`
+                    }": ${e.message}`,
                   );
-                })
-            )
-          )
-      )
+                }),
+            ),
+          ),
+      ),
     );
   });
 
