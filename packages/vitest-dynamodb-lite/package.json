@@ -36,15 +36,15 @@
     "build": "unbuild"
   },
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.282.0",
-    "@aws-sdk/util-dynamodb": "^3.282.0",
+    "@aws-sdk/client-dynamodb": "^3.565.0",
+    "@aws-sdk/util-dynamodb": "^3.565.0",
     "dynalite": "^3.2.2"
   },
   "peerDependencies": {
     "vitest": "1.x"
   },
   "devDependencies": {
-    "@types/node": "^18.14.5",
+    "@types/node": "^20.12.7",
     "typescript": "^5.4.5",
     "unbuild": "^2.0.0",
     "vitest": "1.x"
