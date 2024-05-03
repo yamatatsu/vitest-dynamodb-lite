@@ -29,7 +29,6 @@ export const stop = async (): Promise<void> => {
         if (err) {
           console.error(err);
         }
-        console.info("closing success");
         resolve();
       }),
     );
