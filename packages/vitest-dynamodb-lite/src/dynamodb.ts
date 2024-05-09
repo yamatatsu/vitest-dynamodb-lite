@@ -39,11 +39,11 @@ const waitForTable = async (
 
     if (details?.Table?.TableStatus === "ACTIVE") {
       // eslint-disable-next-line no-await-in-loop
-      await sleep(10);
+      await sleep(5);
       break;
     }
     // eslint-disable-next-line no-await-in-loop
-    await sleep(10);
+    await sleep(5);
   }
 };
 
@@ -62,7 +62,7 @@ const waitForDeleted = async (
       .catch((e) => e.name === "ResourceInUseException");
 
     // eslint-disable-next-line no-await-in-loop
-    await sleep(100);
+    await sleep(5);
 
     if (!details) {
       break;
@@ -76,11 +76,13 @@ export const deleteTables = (
 ): Promise<void> =>
   runWithRealTimers(async () => {
     const { dynamoDB } = dbConnection(port);
+
     await Promise.all(
       tableNames.map((table) =>
         dynamoDB.deleteTable({ TableName: table }).catch(() => {}),
       ),
     );
+
     await Promise.all(
       tableNames.map((table) => waitForDeleted(dynamoDB, table)),
     );
@@ -100,6 +102,7 @@ export const createTables = (
     await Promise.all(
       tables.map((table) => waitForTable(dynamoDB, table.TableName)),
     );
+
     await Promise.all(
       tables.map(
         (table) =>
