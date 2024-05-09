@@ -78,13 +78,10 @@ export const deleteTables = (
     const { dynamoDB } = dbConnection(port);
 
     await Promise.all(
-      tableNames.map((table) =>
-        dynamoDB.deleteTable({ TableName: table }).catch(() => {}),
-      ),
-    );
-
-    await Promise.all(
-      tableNames.map((table) => waitForDeleted(dynamoDB, table)),
+      tableNames.map(async (table) => {
+        await dynamoDB.deleteTable({ TableName: table }).catch(() => {});
+        await waitForDeleted(dynamoDB, table);
+      }),
     );
   });
 
@@ -96,34 +93,29 @@ export const createTables = (
     const { dynamoDB } = dbConnection(port);
 
     await Promise.all(
-      tables.map((table) => dynamoDB.createTable(omit(table, "data"))),
-    );
-
-    await Promise.all(
-      tables.map((table) => waitForTable(dynamoDB, table.TableName)),
-    );
-
-    await Promise.all(
-      tables.map(
-        (table) =>
-          table.data &&
-          Promise.all(
-            table.data.map((row) =>
-              dynamoDB
-                .putItem({
-                  TableName: table.TableName,
-                  Item: marshall(row) as any,
-                })
-                .catch((e) => {
-                  throw new Error(
-                    `Could not add ${JSON.stringify(row)} to "${
-                      table.TableName
-                    }": ${e.message}`,
-                  );
-                }),
-            ),
+      tables.map(async (table) => {
+        await dynamoDB.createTable(omit(table, "data"));
+        await waitForTable(dynamoDB, table.TableName);
+        if (!table.data) {
+          return;
+        }
+        await Promise.all(
+          table.data.map((row) =>
+            dynamoDB
+              .putItem({
+                TableName: table.TableName,
+                Item: marshall(row) as any,
+              })
+              .catch((e) => {
+                throw new Error(
+                  `Could not add ${JSON.stringify(row)} to "${
+                    table.TableName
+                  }": ${e.message}`,
+                );
+              }),
           ),
-      ),
+        );
+      }),
     );
   });
 
