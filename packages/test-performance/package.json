@@ -1,10 +1,10 @@
 {
-  "name": "test-for-setup",
+  "name": "test-performance",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "test": "vitest run"
+    "test": "vitest run --maxWorkers=16"
   },
   "devDependencies": {
     "@aws-sdk/client-dynamodb": "^3.565.0",
