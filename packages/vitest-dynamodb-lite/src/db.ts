@@ -1,9 +1,10 @@
+import http from "node:http";
 // @ts-ignore
 import dynalite from "dynalite";
 import { getTables, getDynalitePort } from "./config";
 import * as dynamodb from "./dynamodb";
 
-export const dynaliteInstance = dynalite({
+export const dynaliteInstance: http.Server = dynalite({
   createTableMs: 0,
   deleteTableMs: 0,
   updateTableMs: 0,
