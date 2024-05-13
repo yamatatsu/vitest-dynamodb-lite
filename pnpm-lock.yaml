@@ -117,6 +117,27 @@ importers:
         specifier: workspace:../vitest-dynamodb-lite
         version: link:../vitest-dynamodb-lite
 
+  packages/test-performance:
+    devDependencies:
+      '@aws-sdk/client-dynamodb':
+        specifier: ^3.565.0
+        version: 3.565.0(@aws-sdk/client-sso-oidc@3.565.0(@aws-sdk/client-sts@3.565.0))(@aws-sdk/client-sts@3.565.0(@aws-sdk/client-sso-oidc@3.565.0))
+      '@aws-sdk/lib-dynamodb':
+        specifier: ^3.565.0
+        version: 3.565.0(@aws-sdk/client-dynamodb@3.565.0(@aws-sdk/client-sso-oidc@3.565.0(@aws-sdk/client-sts@3.565.0))(@aws-sdk/client-sts@3.565.0(@aws-sdk/client-sso-oidc@3.565.0)))
+      '@types/node':
+        specifier: ^20.12.7
+        version: 20.12.7
+      typescript:
+        specifier: ^5.4.5
+        version: 5.4.5
+      vitest:
+        specifier: 1.5.2
+        version: 1.5.2(@types/node@20.12.7)
+      vitest-dynamodb-lite:
+        specifier: workspace:../vitest-dynamodb-lite
+        version: link:../vitest-dynamodb-lite
+
   packages/vitest-dynamodb-lite:
     dependencies:
       '@aws-sdk/client-dynamodb':
@@ -3827,7 +3848,7 @@ snapshots:
   local-pkg@0.5.0:
     dependencies:
       mlly: 1.6.1
-      pkg-types: 1.0.3
+      pkg-types: 1.1.0
 
   lock@1.1.0: {}
 
