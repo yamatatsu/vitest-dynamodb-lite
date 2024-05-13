@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "test": "vitest run --maxWorkers=16"
+    "test": "vitest run",
+    "check-performance": "vitest run --maxWorkers=16"
   },
   "devDependencies": {
     "@aws-sdk/client-dynamodb": "^3.565.0",
