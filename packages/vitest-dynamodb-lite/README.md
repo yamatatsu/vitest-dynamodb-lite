@@ -122,14 +122,6 @@ module.exports = {
 };
 ```
 
-### Debug errors
-
-If you face any error in closing db, you can debug mode to see the error:
-
-```
-VITEST_DYNAMODB_LITE_DEBUG_CLOSING_DB=true npx vitest
-```
-
 ## License
 
 `MIT`

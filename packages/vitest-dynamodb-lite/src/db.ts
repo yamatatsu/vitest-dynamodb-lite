@@ -25,7 +25,7 @@ export const stop = async (): Promise<void> => {
   dynamodb.killConnection();
 
   if (dynaliteInstance.listening) {
-    const closingPromise = new Promise<void>((resolve) =>
+    await new Promise<void>((resolve) =>
       dynaliteInstance.close((err: unknown) => {
         if (err) {
           console.error(err);
@@ -33,9 +33,6 @@ export const stop = async (): Promise<void> => {
         resolve();
       }),
     );
-    if (process.env.VITEST_DYNAMODB_LITE_DEBUG_CLOSING_DB) {
-      await closingPromise;
-    }
   }
 };
 
