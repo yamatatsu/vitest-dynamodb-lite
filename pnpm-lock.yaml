@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       prettier:
-        specifier: ^3.2.5
-        version: 3.2.5
+        specifier: ^3.3.2
+        version: 3.3.2
 
   packages/test-concurrency:
     devDependencies:
@@ -1853,8 +1853,8 @@ packages:
     resolution: {integrity: sha512-Wglpdk03BSfXkHoQa3b/oulrotAkwrlLDRSOb9D0bN86FdRyE9lppSp33aHNPgBa0JKCoB+drFLZkQoRRYae5A==}
     engines: {node: ^10 || ^12 || >=14}
 
-  prettier@3.2.5:
-    resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==}
+  prettier@3.3.2:
+    resolution: {integrity: sha512-rAVeHYMcv8ATV5d508CFdn+8/pHPpXeIid1DdrPwXnaAdH7cqjVbpJaT5eq4yRAFU/lsbwYwSF/n5iNrdJHPQA==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -4127,7 +4127,7 @@ snapshots:
       picocolors: 1.0.0
       source-map-js: 1.2.0
 
-  prettier@3.2.5: {}
+  prettier@3.3.2: {}
 
   pretty-bytes@6.1.1: {}
 
