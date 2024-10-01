@@ -24,8 +24,8 @@ importers:
         specifier: ^20.12.11
         version: 20.12.11
       typescript:
-        specifier: ^5.5.2
-        version: 5.5.2
+        specifier: ^5.6.2
+        version: 5.6.2
       vitest:
         specifier: 1.6.0
         version: 1.6.0(@types/node@20.12.11)
@@ -45,8 +45,8 @@ importers:
         specifier: ^20.12.11
         version: 20.12.11
       typescript:
-        specifier: ^5.5.2
-        version: 5.5.2
+        specifier: ^5.6.2
+        version: 5.6.2
       vitest:
         specifier: 1.6.0
         version: 1.6.0(@types/node@20.12.11)
@@ -66,8 +66,8 @@ importers:
         specifier: ^20.12.11
         version: 20.12.11
       typescript:
-        specifier: ^5.5.2
-        version: 5.5.2
+        specifier: ^5.6.2
+        version: 5.6.2
       vitest:
         specifier: 1.6.0
         version: 1.6.0(@types/node@20.12.11)
@@ -87,8 +87,8 @@ importers:
         specifier: ^20.12.11
         version: 20.12.11
       typescript:
-        specifier: ^5.5.2
-        version: 5.5.2
+        specifier: ^5.6.2
+        version: 5.6.2
       vitest:
         specifier: 1.6.0
         version: 1.6.0(@types/node@20.12.11)
@@ -108,8 +108,8 @@ importers:
         specifier: ^20.12.11
         version: 20.12.11
       typescript:
-        specifier: ^5.5.2
-        version: 5.5.2
+        specifier: ^5.6.2
+        version: 5.6.2
       vitest:
         specifier: 1.6.0
         version: 1.6.0(@types/node@20.12.11)
@@ -129,8 +129,8 @@ importers:
         specifier: ^20.12.11
         version: 20.12.11
       typescript:
-        specifier: ^5.5.2
-        version: 5.5.2
+        specifier: ^5.6.2
+        version: 5.6.2
       vitest:
         specifier: 1.6.0
         version: 1.6.0(@types/node@20.12.11)
@@ -154,11 +154,11 @@ importers:
         specifier: ^20.12.11
         version: 20.12.11
       typescript:
-        specifier: ^5.5.2
-        version: 5.5.2
+        specifier: ^5.6.2
+        version: 5.6.2
       unbuild:
         specifier: ^2.0.0
-        version: 2.0.0(typescript@5.5.2)
+        version: 2.0.0(typescript@5.6.2)
       vitest:
         specifier: ~1.6.0
         version: 1.6.0(@types/node@20.12.11)
@@ -2024,8 +2024,8 @@ packages:
     resolution: {integrity: sha512-0fr/mIH1dlO+x7TlcMy+bIDqKPsw/70tVyeHW787goQjhmqaZe10uwLujubK9q9Lg6Fiho1KUKDYz0Z7k7g5/g==}
     engines: {node: '>=4'}
 
-  typescript@5.5.2:
-    resolution: {integrity: sha512-NcRtPEOsPFFWjobJEtfihkLCZCXZt/os3zf8nTxjVH3RvTSxjrCamJpbExGvYOF+tFHc3pA65qpdwPbzjohhew==}
+  typescript@5.6.2:
+    resolution: {integrity: sha512-NW8ByodCSNCwZeghjN3o+JX5OFH0Ojg6sadjEKY4huZ52TqbJTJnDo5+Tw98lSy63NZvi4n+ez5m2u5d4PkZyw==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -3869,7 +3869,7 @@ snapshots:
 
   minimist@1.2.8: {}
 
-  mkdist@1.5.1(typescript@5.5.2):
+  mkdist@1.5.1(typescript@5.6.2):
     dependencies:
       autoprefixer: 10.4.19(postcss@8.4.38)
       citty: 0.1.6
@@ -3887,7 +3887,7 @@ snapshots:
       postcss-nested: 6.0.1(postcss@8.4.38)
       semver: 7.6.2
     optionalDependencies:
-      typescript: 5.5.2
+      typescript: 5.6.2
 
   mlly@1.7.0:
     dependencies:
@@ -4159,11 +4159,11 @@ snapshots:
 
   reusify@1.0.4: {}
 
-  rollup-plugin-dts@6.1.0(rollup@3.29.4)(typescript@5.5.2):
+  rollup-plugin-dts@6.1.0(rollup@3.29.4)(typescript@5.6.2):
     dependencies:
       magic-string: 0.30.10
       rollup: 3.29.4
-      typescript: 5.5.2
+      typescript: 5.6.2
     optionalDependencies:
       '@babel/code-frame': 7.24.2
 
@@ -4286,11 +4286,11 @@ snapshots:
 
   type-detect@4.0.8: {}
 
-  typescript@5.5.2: {}
+  typescript@5.6.2: {}
 
   ufo@1.5.3: {}
 
-  unbuild@2.0.0(typescript@5.5.2):
+  unbuild@2.0.0(typescript@5.6.2):
     dependencies:
       '@rollup/plugin-alias': 5.1.0(rollup@3.29.4)
       '@rollup/plugin-commonjs': 25.0.7(rollup@3.29.4)
@@ -4307,17 +4307,17 @@ snapshots:
       hookable: 5.5.3
       jiti: 1.21.0
       magic-string: 0.30.10
-      mkdist: 1.5.1(typescript@5.5.2)
+      mkdist: 1.5.1(typescript@5.6.2)
       mlly: 1.7.0
       pathe: 1.1.2
       pkg-types: 1.1.1
       pretty-bytes: 6.1.1
       rollup: 3.29.4
-      rollup-plugin-dts: 6.1.0(rollup@3.29.4)(typescript@5.5.2)
+      rollup-plugin-dts: 6.1.0(rollup@3.29.4)(typescript@5.6.2)
       scule: 1.3.0
       untyped: 1.4.2
     optionalDependencies:
-      typescript: 5.5.2
+      typescript: 5.6.2
     transitivePeerDependencies:
       - sass
       - supports-color
