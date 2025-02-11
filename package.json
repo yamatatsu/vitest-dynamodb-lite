@@ -9,5 +9,8 @@
   },
   "devDependencies": {
     "prettier": "^3.4.2"
+  },
+  "engines": {
+    "pnpm": "^10.x.x"
   }
 }
