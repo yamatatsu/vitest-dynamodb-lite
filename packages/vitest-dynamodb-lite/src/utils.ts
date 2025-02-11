@@ -34,24 +34,11 @@ export const omit = <T extends object, K extends [...(keyof T)[]]>(
   };
 };
 
-const detectUsingFakeTimers = (): boolean => {
-  let usingModernJestFakeTimers = false;
-  try {
-    // jest.getRealSystemTime is only supported for Jest's `modern` fake timers and otherwise throws
-    vi.getRealSystemTime();
-    usingModernJestFakeTimers = true;
-  } catch {
-    // not using Jest's modern fake timers
-  }
-
-  return usingModernJestFakeTimers;
-};
-
 // stolen from https://github.com/testing-library/dom-testing-library/blob/master/src/helpers.js
 export const runWithRealTimers = <T, R>(
   callback: () => T | Promise<R>,
 ): T | Promise<R> => {
-  const usingFakeTimers = detectUsingFakeTimers();
+  const usingFakeTimers = vi.isFakeTimers();
 
   if (usingFakeTimers) {
     vi.useRealTimers();
