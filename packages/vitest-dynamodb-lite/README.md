@@ -53,11 +53,9 @@ export default defineConfig({
 
 In your project root, create a config file with the tables schemas, and an optional `basePort` to run dynalite on.
 
-`vitest-dynamodb-lite-config.ts`
+`vitest-dynamodb-lite-config.js`
 
 ```js
-import type { Config } from "vitest-dynamodb-lite";
-
 export default {
   tables: [
     {
@@ -71,10 +69,10 @@ export default {
     },
   ],
   basePort: 8000,
-} satisfies Config;
+};
 ```
 
-You can write the config file in either `js` or `json` format.
+You can write the config file in either `json` format.
 
 ### 3. Update your source code
 
