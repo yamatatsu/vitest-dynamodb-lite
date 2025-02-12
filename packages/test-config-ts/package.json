@@ -1,5 +1,5 @@
 {
-  "name": "test-runtime-esm-config-mjs",
+  "name": "test-config-ts",
   "private": true,
   "version": "0.0.0",
   "type": "module",

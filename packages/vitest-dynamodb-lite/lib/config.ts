@@ -3,22 +3,13 @@ import { resolve, relative } from "node:path";
 import { Config, TableConfig } from "./types";
 import { isFunction } from "./utils";
 
-const CONFIG_FILE_NAME = "vitest-dynamodb-lite-config.js";
-const CONFIG_FILE_NAME_CJS = "vitest-dynamodb-lite-config.cjs";
-const CONFIG_FILE_NAME_MJS = "vitest-dynamodb-lite-config.mjs";
-const CONFIG_FILE_NAME_JSON = "vitest-dynamodb-lite-config.json";
-const CONFIG_FILE_NAMES = [
-  CONFIG_FILE_NAME,
-  CONFIG_FILE_NAME_CJS,
-  CONFIG_FILE_NAME_MJS,
-  CONFIG_FILE_NAME_JSON,
-] as const;
+const CONFIG_FILE_NAMES = ["ts", "js", "cjs", "mjs", "json"].map(
+  (ext) => `vitest-dynamodb-lite-config.${ext}`,
+);
 
 export class NotFoundError extends Error {
   constructor(dir: string) {
-    super(
-      `Could not find '${CONFIG_FILE_NAME}', '${CONFIG_FILE_NAME_CJS}', '${CONFIG_FILE_NAME_MJS}' or '${CONFIG_FILE_NAME_JSON}' in dir ${dir}`,
-    );
+    super(`Could not find '${CONFIG_FILE_NAMES.join("', '")}' in dir ${dir}`);
   }
 }
 

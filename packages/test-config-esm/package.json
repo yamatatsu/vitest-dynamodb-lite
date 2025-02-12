@@ -1,16 +1,14 @@
 {
-  "name": "test-runtime-cjs-config-cjs",
+  "name": "test-config-mjs",
   "private": true,
   "version": "0.0.0",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "test": "vitest run"
   },
   "devDependencies": {
     "@aws-sdk/client-dynamodb": "^3.741.0",
     "@aws-sdk/lib-dynamodb": "^3.741.0",
-    "@types/node": "^22.13.1",
-    "typescript": "^5.7.3",
     "vitest": "3.0.5",
     "vitest-dynamodb-lite": "workspace:../vitest-dynamodb-lite"
   }

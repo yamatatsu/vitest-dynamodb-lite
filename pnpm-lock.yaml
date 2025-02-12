@@ -33,6 +33,36 @@ importers:
         specifier: workspace:../vitest-dynamodb-lite
         version: link:../vitest-dynamodb-lite
 
+  packages/test-config-cjs:
+    devDependencies:
+      '@aws-sdk/client-dynamodb':
+        specifier: ^3.741.0
+        version: 3.741.0
+      '@aws-sdk/lib-dynamodb':
+        specifier: ^3.741.0
+        version: 3.741.0(@aws-sdk/client-dynamodb@3.741.0)
+      vitest:
+        specifier: 3.0.5
+        version: 3.0.5(@types/node@22.13.1)(jiti@2.4.2)
+      vitest-dynamodb-lite:
+        specifier: workspace:../vitest-dynamodb-lite
+        version: link:../vitest-dynamodb-lite
+
+  packages/test-config-esm:
+    devDependencies:
+      '@aws-sdk/client-dynamodb':
+        specifier: ^3.741.0
+        version: 3.741.0
+      '@aws-sdk/lib-dynamodb':
+        specifier: ^3.741.0
+        version: 3.741.0(@aws-sdk/client-dynamodb@3.741.0)
+      vitest:
+        specifier: 3.0.5
+        version: 3.0.5(@types/node@22.13.1)(jiti@2.4.2)
+      vitest-dynamodb-lite:
+        specifier: workspace:../vitest-dynamodb-lite
+        version: link:../vitest-dynamodb-lite
+
   packages/test-config-js:
     devDependencies:
       '@aws-sdk/client-dynamodb':
@@ -41,12 +71,6 @@ importers:
       '@aws-sdk/lib-dynamodb':
         specifier: ^3.741.0
         version: 3.741.0(@aws-sdk/client-dynamodb@3.741.0)
-      '@types/node':
-        specifier: ^22.13.1
-        version: 22.13.1
-      typescript:
-        specifier: ^5.7.3
-        version: 5.7.3
       vitest:
         specifier: 3.0.5
         version: 3.0.5(@types/node@22.13.1)(jiti@2.4.2)
@@ -62,12 +86,6 @@ importers:
       '@aws-sdk/lib-dynamodb':
         specifier: ^3.741.0
         version: 3.741.0(@aws-sdk/client-dynamodb@3.741.0)
-      '@types/node':
-        specifier: ^22.13.1
-        version: 22.13.1
-      typescript:
-        specifier: ^5.7.3
-        version: 5.7.3
       vitest:
         specifier: 3.0.5
         version: 3.0.5(@types/node@22.13.1)(jiti@2.4.2)
@@ -75,7 +93,7 @@ importers:
         specifier: workspace:../vitest-dynamodb-lite
         version: link:../vitest-dynamodb-lite
 
-  packages/test-lang-js-runtime-cjs:
+  packages/test-config-ts:
     devDependencies:
       '@aws-sdk/client-dynamodb':
         specifier: ^3.741.0
@@ -83,105 +101,6 @@ importers:
       '@aws-sdk/lib-dynamodb':
         specifier: ^3.741.0
         version: 3.741.0(@aws-sdk/client-dynamodb@3.741.0)
-      vitest:
-        specifier: 3.0.5
-        version: 3.0.5(@types/node@22.13.1)(jiti@2.4.2)
-      vitest-dynamodb-lite:
-        specifier: workspace:../vitest-dynamodb-lite
-        version: link:../vitest-dynamodb-lite
-
-  packages/test-lang-js-runtime-esm:
-    devDependencies:
-      '@aws-sdk/client-dynamodb':
-        specifier: ^3.741.0
-        version: 3.741.0
-      '@aws-sdk/lib-dynamodb':
-        specifier: ^3.741.0
-        version: 3.741.0(@aws-sdk/client-dynamodb@3.741.0)
-      vitest:
-        specifier: 3.0.5
-        version: 3.0.5(@types/node@22.13.1)(jiti@2.4.2)
-      vitest-dynamodb-lite:
-        specifier: workspace:../vitest-dynamodb-lite
-        version: link:../vitest-dynamodb-lite
-
-  packages/test-lang-ts-runtime-cjs-config-cjs:
-    devDependencies:
-      '@aws-sdk/client-dynamodb':
-        specifier: ^3.741.0
-        version: 3.741.0
-      '@aws-sdk/lib-dynamodb':
-        specifier: ^3.741.0
-        version: 3.741.0(@aws-sdk/client-dynamodb@3.741.0)
-      '@types/node':
-        specifier: ^22.13.1
-        version: 22.13.1
-      typescript:
-        specifier: ^5.7.3
-        version: 5.7.3
-      vitest:
-        specifier: 3.0.5
-        version: 3.0.5(@types/node@22.13.1)(jiti@2.4.2)
-      vitest-dynamodb-lite:
-        specifier: workspace:../vitest-dynamodb-lite
-        version: link:../vitest-dynamodb-lite
-
-  packages/test-lang-ts-runtime-cjs-config-mjs:
-    devDependencies:
-      '@aws-sdk/client-dynamodb':
-        specifier: ^3.741.0
-        version: 3.741.0
-      '@aws-sdk/lib-dynamodb':
-        specifier: ^3.741.0
-        version: 3.741.0(@aws-sdk/client-dynamodb@3.741.0)
-      '@types/node':
-        specifier: ^22.13.1
-        version: 22.13.1
-      typescript:
-        specifier: ^5.7.3
-        version: 5.7.3
-      vitest:
-        specifier: 3.0.5
-        version: 3.0.5(@types/node@22.13.1)(jiti@2.4.2)
-      vitest-dynamodb-lite:
-        specifier: workspace:../vitest-dynamodb-lite
-        version: link:../vitest-dynamodb-lite
-
-  packages/test-lang-ts-runtime-esm-config-cjs:
-    devDependencies:
-      '@aws-sdk/client-dynamodb':
-        specifier: ^3.741.0
-        version: 3.741.0
-      '@aws-sdk/lib-dynamodb':
-        specifier: ^3.741.0
-        version: 3.741.0(@aws-sdk/client-dynamodb@3.741.0)
-      '@types/node':
-        specifier: ^22.13.1
-        version: 22.13.1
-      typescript:
-        specifier: ^5.7.3
-        version: 5.7.3
-      vitest:
-        specifier: 3.0.5
-        version: 3.0.5(@types/node@22.13.1)(jiti@2.4.2)
-      vitest-dynamodb-lite:
-        specifier: workspace:../vitest-dynamodb-lite
-        version: link:../vitest-dynamodb-lite
-
-  packages/test-lang-ts-runtime-esm-config-mjs:
-    devDependencies:
-      '@aws-sdk/client-dynamodb':
-        specifier: ^3.741.0
-        version: 3.741.0
-      '@aws-sdk/lib-dynamodb':
-        specifier: ^3.741.0
-        version: 3.741.0(@aws-sdk/client-dynamodb@3.741.0)
-      '@types/node':
-        specifier: ^22.13.1
-        version: 22.13.1
-      typescript:
-        specifier: ^5.7.3
-        version: 5.7.3
       vitest:
         specifier: 3.0.5
         version: 3.0.5(@types/node@22.13.1)(jiti@2.4.2)
@@ -190,6 +109,27 @@ importers:
         version: link:../vitest-dynamodb-lite
 
   packages/test-performance:
+    devDependencies:
+      '@aws-sdk/client-dynamodb':
+        specifier: ^3.741.0
+        version: 3.741.0
+      '@aws-sdk/lib-dynamodb':
+        specifier: ^3.741.0
+        version: 3.741.0(@aws-sdk/client-dynamodb@3.741.0)
+      '@types/node':
+        specifier: ^22.13.1
+        version: 22.13.1
+      typescript:
+        specifier: ^5.7.3
+        version: 5.7.3
+      vitest:
+        specifier: 3.0.5
+        version: 3.0.5(@types/node@22.13.1)(jiti@2.4.2)
+      vitest-dynamodb-lite:
+        specifier: workspace:../vitest-dynamodb-lite
+        version: link:../vitest-dynamodb-lite
+
+  packages/test-with-tsconfig:
     devDependencies:
       '@aws-sdk/client-dynamodb':
         specifier: ^3.741.0

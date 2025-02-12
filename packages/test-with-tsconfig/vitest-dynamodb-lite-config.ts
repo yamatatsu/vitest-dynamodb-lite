@@ -1,4 +1,6 @@
-module.exports = {
+import type { Config } from "vitest-dynamodb-lite";
+
+export default {
   tables: [
     {
       TableName: "pk-string-table",
@@ -41,4 +43,4 @@ module.exports = {
     },
   ],
   basePort: 8100,
-};
+} satisfies Config;
