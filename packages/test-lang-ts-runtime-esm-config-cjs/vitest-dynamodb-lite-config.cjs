@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   tables: [
     {
       TableName: "pk-string-table",
@@ -40,5 +40,5 @@ export default {
       ],
     },
   ],
-  basePort: 8200,
+  basePort: 8100,
 };

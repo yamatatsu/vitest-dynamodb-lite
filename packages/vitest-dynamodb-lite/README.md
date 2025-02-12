@@ -53,34 +53,26 @@ export default defineConfig({
 
 In your project root, create a config file with the tables schemas, and an optional `basePort` to run dynalite on.
 
-You can write the config file in either `json`, `js`, or `cjs` format.
-
-In `json`:
-
-```json
-{
-  "tables": [
-    {
-      "TableName": "table",
-      "KeySchema": [{ "AttributeName": "id", "KeyType": "HASH" }],
-      "AttributeDefinitions": [{ "AttributeName": "id", "AttributeType": "S" }],
-      "ProvisionedThroughput": {
-        "ReadCapacityUnits": 1,
-        "WriteCapacityUnits": 1
-      }
-    }
-  ],
-  "basePort": 8000
-}
-```
-
-In `js` or `cjs`:
+`vitest-dynamodb-lite-config.js`
 
 ```js
-module.exports = {
-  // your configures
+export default {
+  tables: [
+    {
+      TableName: "table",
+      KeySchema: [{ AttributeName: "id", KeyType: "HASH" }],
+      AttributeDefinitions: [{ AttributeName: "id", AttributeType: "S" }],
+      ProvisionedThroughput: {
+        ReadCapacityUnits: 1,
+        WriteCapacityUnits: 1,
+      },
+    },
+  ],
+  basePort: 8000,
 };
 ```
+
+You can write the config file in either `json` format.
 
 ### 3. Update your source code
 
