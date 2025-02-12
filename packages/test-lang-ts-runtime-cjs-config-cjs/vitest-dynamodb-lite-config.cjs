@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   tables: [
     {
       TableName: "pk-string-table",

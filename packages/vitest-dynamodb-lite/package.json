@@ -2,9 +2,7 @@
   "name": "vitest-dynamodb-lite",
   "version": "4.0.0",
   "description": "fast dynamodb mock on local for vitest",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "./lib/index.ts",
   "author": "Tatsuya Yamamoto <the.kinnikuman@gmail.com> (https://github.com/yamatatsu)",
   "license": "MIT",
   "repository": "github:yamatatsu/vitest-dynamodb-lite",
@@ -22,19 +20,8 @@
     "database"
   ],
   "files": [
-    "dist",
     "lib"
   ],
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
-    }
-  },
-  "scripts": {
-    "build": "unbuild"
-  },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.741.0",
     "@aws-sdk/util-dynamodb": "^3.741.0",
@@ -46,7 +33,6 @@
   "devDependencies": {
     "@types/node": "^22.13.1",
     "typescript": "^5.7.3",
-    "unbuild": "^3.3.1",
     "vitest": "^3.0.5"
   }
 }

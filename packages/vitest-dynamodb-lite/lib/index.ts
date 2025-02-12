@@ -3,7 +3,7 @@ import { beforeAll, afterEach, afterAll } from "vitest";
 import { setEnvironmentVariables } from "./setEnvironmentVariables";
 import { start, stop, createTables, deleteTables } from "./db";
 
-setEnvironmentVariables();
+await setEnvironmentVariables();
 
 beforeAll(async () => {
   // console.time("await start();");

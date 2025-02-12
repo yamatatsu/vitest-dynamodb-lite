@@ -1,5 +1,5 @@
 {
-  "name": "test-config-cjs",
+  "name": "test-runtime-esm-config-cjs",
   "private": true,
   "version": "0.0.0",
   "type": "module",

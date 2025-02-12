@@ -2,10 +2,8 @@
   "name": "vitest-dynamodb-lite-root",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "build": "pnpm --filter vitest-dynamodb-lite build",
-    "test": "pnpm run --filter '!./packages/test-config-mjs' test"
+    "test": "pnpm run -r --sequential test"
   },
   "devDependencies": {
     "prettier": "^3.4.2"

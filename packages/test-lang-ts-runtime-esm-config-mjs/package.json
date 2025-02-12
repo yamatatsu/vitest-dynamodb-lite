@@ -1,5 +1,5 @@
 {
-  "name": "test-runtime-esm-config-json",
+  "name": "test-runtime-esm-config-mjs",
   "private": true,
   "version": "0.0.0",
   "type": "module",

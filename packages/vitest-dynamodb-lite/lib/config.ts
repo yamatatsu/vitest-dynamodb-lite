@@ -1,5 +1,5 @@
 import fs from "node:fs";
-import { resolve } from "node:path";
+import { resolve, relative } from "node:path";
 import { Config, TableConfig } from "./types";
 import { isFunction } from "./utils";
 
@@ -14,8 +14,6 @@ const CONFIG_FILE_NAMES = [
   CONFIG_FILE_NAME_JSON,
 ] as const;
 
-type ConfigFileName = (typeof CONFIG_FILE_NAMES)[number];
-
 export class NotFoundError extends Error {
   constructor(dir: string) {
     super(
@@ -24,46 +22,47 @@ export class NotFoundError extends Error {
   }
 }
 
-const findConfigOrError = (directory: string): ConfigFileName => {
-  const foundFile = CONFIG_FILE_NAMES.find((config) => {
-    const file = resolve(directory, config);
+const findConfigOrError = (): string => {
+  const rootDir = process.cwd();
+  const foundFileName = CONFIG_FILE_NAMES.find((config) => {
+    const file = resolve(rootDir, config);
     return fs.existsSync(file);
   });
 
-  if (!foundFile) {
-    throw new NotFoundError(resolve(directory));
+  if (!foundFileName) {
+    throw new NotFoundError(resolve(rootDir));
   }
 
-  return foundFile;
+  const foundFilePath = resolve(rootDir, foundFileName);
+
+  return foundFilePath;
 };
 
-const readConfig = (): Config => {
-  const rootDir = process.cwd();
-  const configFile = findConfigOrError(rootDir);
-  const file = resolve(rootDir, configFile);
-
+const readConfig = async (): Promise<Config> => {
+  const file = findConfigOrError();
+  const relativePath = relative(__dirname, file);
   try {
-    if (file.endsWith(".json")) {
-      return JSON.parse(fs.readFileSync(file, "utf-8"));
+    const config = await import(relativePath);
+
+    if (config.default) {
+      return config.default;
+    } else {
+      return config;
     }
-    const importedConfig = eval(fs.readFileSync(file, "utf-8"));
-    if ("default" in importedConfig) {
-      return importedConfig.default;
-    }
-    return importedConfig;
   } catch (e) {
     if (e instanceof Error) {
       throw new Error(
-        `Something went wrong reading your ${configFile}: ${e.message}, ${e.stack}`,
+        `Something went wrong reading your config file: ${e.message}, ${e.stack}`,
       );
     } else {
-      throw new Error(`Something went wrong reading your ${configFile}: ${e}`);
+      throw new Error(`Something went wrong reading your config file: ${e}`);
     }
   }
 };
 
-export const getDynalitePort = (): number => {
-  const { basePort = 8000 } = readConfig();
+export const getDynalitePort = async (): Promise<number> => {
+  const configString = await readConfig();
+  const basePort = configString.basePort ?? 8000;
   if (Number.isInteger(basePort) && basePort > 0 && basePort <= 65535) {
     return basePort + parseInt(process.env.VITEST_WORKER_ID || "1", 10);
   }
@@ -82,7 +81,7 @@ export const getTables = async (): Promise<TableConfig[]> => {
     return tablesCache;
   }
 
-  const { tables: tablesConfig } = readConfig();
+  const { tables: tablesConfig } = await readConfig();
 
   if (isFunction(tablesConfig)) {
     tablesCache = await tablesConfig();
