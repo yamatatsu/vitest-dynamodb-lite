@@ -6,7 +6,7 @@
     "test": "pnpm run -r --sequential test"
   },
   "devDependencies": {
-    "prettier": "^3.4.2"
+    "prettier": "^3.5.3"
   },
   "engines": {
     "pnpm": "^10.x.x"
