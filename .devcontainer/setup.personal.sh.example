@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Add your personal setup steps here
+echo "🔧 Running personal setup..."
+
+# echo '👤 Setting up your shell'
+echo 'alias g="git"' >> ~/.zshrc
+echo 'alias pn="pnpm"' >> ~/.zshrc
+
+# echo '👩‍💻 Install a VS Code extension'
+code --install-extension herrmannplatz.npm-dependency-links

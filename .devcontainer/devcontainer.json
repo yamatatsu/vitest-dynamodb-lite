@@ -1,0 +1,33 @@
+{
+  "name": "vitest-dynamodb-lite",
+
+  "build": {
+    // Use Dockerfile for tools not available as Dev Container Features.
+    "dockerfile": "Dockerfile"
+  },
+  "runArgs": ["--name=vitest-dynamodb-lite"],
+
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "24"
+    },
+    "ghcr.io/devcontainers-extra/features/corepack:1": {},
+    "ghcr.io/devcontainers/features/aws-cli:1": {}
+  },
+
+  // VS Code extensions and settings
+  "customizations": {
+    "vscode": {
+      "extensions": ["esbenp.prettier-vscode"],
+      "settings": {
+        "prettier.enable": true,
+        "editor.formatOnSave": true
+      }
+    }
+  },
+
+  // Lifecycle scripts
+  "postCreateCommand": "chmod +x .devcontainer/setup.sh && .devcontainer/setup.sh"
+}
