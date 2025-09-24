@@ -1,6 +1,6 @@
 {
   "name": "vitest-dynamodb-lite",
-  "version": "4.1.1",
+  "version": "4.1.2",
   "description": "fast dynamodb mock on local for vitest",
   "main": "./lib/index.ts",
   "author": "Tatsuya Yamamoto <the.kinnikuman@gmail.com> (https://github.com/yamatatsu)",
