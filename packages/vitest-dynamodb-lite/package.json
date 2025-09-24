@@ -25,7 +25,7 @@
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.895.0",
     "@aws-sdk/util-dynamodb": "^3.895.0",
-    "dynalite": "^3.2.2"
+    "dynalite": "^4.0.0"
   },
   "peerDependencies": {
     "vitest": "3.x"
