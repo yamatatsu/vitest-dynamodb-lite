@@ -19,19 +19,18 @@ jobs:
       contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v5
         with:
           node-version: 20
           registry-url: "https://registry.npmjs.org"
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v4
         name: Install pnpm
         id: pnpm-install
         with:
           version: 10
-          run_install: false
-      - run: pnpm install
+          run_install: true
       - run: pnpm test
       - name: Configure git user
         run: |
@@ -55,12 +54,16 @@ jobs:
           git push --tag
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # We need to update npm for trusted publishing because pnpm publish uses npm under the hood.
+      # see https://docs.npmjs.com/trusted-publishers
+      - name: Update npm
+        run: npm install -g npm@latest
+
       - name: Release
         run: |
           cd packages/vitest-dynamodb-lite
           pnpm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Get the version
         id: get_version
