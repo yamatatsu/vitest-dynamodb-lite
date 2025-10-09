@@ -31,3 +31,4 @@ jobs:
           version: 10
           run_install: true
       - run: pnpm test
+      - run: pnpm jsgl --local ./packages/vitest-dynamodb-lite/

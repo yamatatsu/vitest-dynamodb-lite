@@ -6,6 +6,7 @@
     "test": "pnpm run -r --sequential test"
   },
   "devDependencies": {
+    "js-green-licenses": "^4.0.0",
     "prettier": "^3.6.2"
   },
   "engines": {
