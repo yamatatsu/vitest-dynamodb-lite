@@ -24,14 +24,14 @@ importers:
         specifier: ^3.899.0
         version: 3.899.0(@aws-sdk/client-dynamodb@3.899.0)
       '@types/node':
-        specifier: ^24.7.1
-        version: 24.7.1
+        specifier: ^24.10.1
+        version: 24.10.1
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
       vitest:
         specifier: ^4.0.10
-        version: 4.0.10(@types/node@24.7.1)(jiti@2.4.2)
+        version: 4.0.10(@types/node@24.10.1)(jiti@2.4.2)
       vitest-dynamodb-lite:
         specifier: workspace:../vitest-dynamodb-lite
         version: link:../vitest-dynamodb-lite
@@ -46,7 +46,7 @@ importers:
         version: 3.899.0(@aws-sdk/client-dynamodb@3.899.0)
       vitest:
         specifier: ^4.0.10
-        version: 4.0.10(@types/node@24.7.1)(jiti@2.4.2)
+        version: 4.0.10(@types/node@24.10.1)(jiti@2.4.2)
       vitest-dynamodb-lite:
         specifier: workspace:../vitest-dynamodb-lite
         version: link:../vitest-dynamodb-lite
@@ -61,7 +61,7 @@ importers:
         version: 3.899.0(@aws-sdk/client-dynamodb@3.899.0)
       vitest:
         specifier: ^4.0.10
-        version: 4.0.10(@types/node@24.7.1)(jiti@2.4.2)
+        version: 4.0.10(@types/node@24.10.1)(jiti@2.4.2)
       vitest-dynamodb-lite:
         specifier: workspace:../vitest-dynamodb-lite
         version: link:../vitest-dynamodb-lite
@@ -76,7 +76,7 @@ importers:
         version: 3.899.0(@aws-sdk/client-dynamodb@3.899.0)
       vitest:
         specifier: ^4.0.10
-        version: 4.0.10(@types/node@24.7.1)(jiti@2.4.2)
+        version: 4.0.10(@types/node@24.10.1)(jiti@2.4.2)
       vitest-dynamodb-lite:
         specifier: workspace:../vitest-dynamodb-lite
         version: link:../vitest-dynamodb-lite
@@ -91,7 +91,7 @@ importers:
         version: 3.899.0(@aws-sdk/client-dynamodb@3.899.0)
       vitest:
         specifier: ^4.0.10
-        version: 4.0.10(@types/node@24.7.1)(jiti@2.4.2)
+        version: 4.0.10(@types/node@24.10.1)(jiti@2.4.2)
       vitest-dynamodb-lite:
         specifier: workspace:../vitest-dynamodb-lite
         version: link:../vitest-dynamodb-lite
@@ -106,7 +106,7 @@ importers:
         version: 3.899.0(@aws-sdk/client-dynamodb@3.899.0)
       vitest:
         specifier: ^4.0.10
-        version: 4.0.10(@types/node@24.7.1)(jiti@2.4.2)
+        version: 4.0.10(@types/node@24.10.1)(jiti@2.4.2)
       vitest-dynamodb-lite:
         specifier: workspace:../vitest-dynamodb-lite
         version: link:../vitest-dynamodb-lite
@@ -120,14 +120,14 @@ importers:
         specifier: ^3.899.0
         version: 3.899.0(@aws-sdk/client-dynamodb@3.899.0)
       '@types/node':
-        specifier: ^24.7.1
-        version: 24.7.1
+        specifier: ^24.10.1
+        version: 24.10.1
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
       vitest:
         specifier: ^4.0.10
-        version: 4.0.10(@types/node@24.7.1)(jiti@2.4.2)
+        version: 4.0.10(@types/node@24.10.1)(jiti@2.4.2)
       vitest-dynamodb-lite:
         specifier: workspace:../vitest-dynamodb-lite
         version: link:../vitest-dynamodb-lite
@@ -141,14 +141,14 @@ importers:
         specifier: ^3.899.0
         version: 3.899.0(@aws-sdk/client-dynamodb@3.899.0)
       '@types/node':
-        specifier: ^24.7.1
-        version: 24.7.1
+        specifier: ^24.10.1
+        version: 24.10.1
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
       vitest:
         specifier: ^4.0.10
-        version: 4.0.10(@types/node@24.7.1)(jiti@2.4.2)
+        version: 4.0.10(@types/node@24.10.1)(jiti@2.4.2)
       vitest-dynamodb-lite:
         specifier: workspace:../vitest-dynamodb-lite
         version: link:../vitest-dynamodb-lite
@@ -166,14 +166,14 @@ importers:
         version: 4.0.0
     devDependencies:
       '@types/node':
-        specifier: ^24.7.1
-        version: 24.7.1
+        specifier: ^24.10.1
+        version: 24.10.1
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
       vitest:
         specifier: ^4.0.10
-        version: 4.0.10(@types/node@24.7.1)(jiti@2.4.2)
+        version: 4.0.10(@types/node@24.10.1)(jiti@2.4.2)
 
 packages:
 
@@ -795,8 +795,8 @@ packages:
   '@types/minimist@1.2.5':
     resolution: {integrity: sha512-hov8bUuiLiyFPGyFPE1lwWhmzYbirOXQNNo40+y3zow8aFVTeyn3VWL0VFFfdNddA8S4Vf0Tc062rzyNr7Paag==}
 
-  '@types/node@24.7.1':
-    resolution: {integrity: sha512-CmyhGZanP88uuC5GpWU9q+fI61j2SkhO3UGMUdfYRE6Bcy0ccyzn1Rqj9YAB/ZY4kOXmNf0ocah5GtphmLMP6Q==}
+  '@types/node@24.10.1':
+    resolution: {integrity: sha512-GNWcUTRBgIRJD5zj+Tq0fKOJ5XZajIiBroOF0yvj2bSU1WvNdYS/dn9UxwsujGW4JX06dnHyjV2y9rRaybH0iQ==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -1410,8 +1410,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  undici-types@7.14.0:
-    resolution: {integrity: sha512-QQiYxHuyZ9gQUIrmPo3IA+hUl4KYk8uSA7cHrcKd/l3p1OTpZcM0Tbp9x7FAtXdAYhlasd60ncPpgu6ihG6TOA==}
+  undici-types@7.16.0:
+    resolution: {integrity: sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==}
 
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
@@ -2348,7 +2348,7 @@ snapshots:
     dependencies:
       '@types/http-cache-semantics': 4.0.4
       '@types/keyv': 3.1.4
-      '@types/node': 24.7.1
+      '@types/node': 24.10.1
       '@types/responselike': 1.0.3
 
   '@types/chai@5.2.2':
@@ -2363,19 +2363,19 @@ snapshots:
 
   '@types/keyv@3.1.4':
     dependencies:
-      '@types/node': 24.7.1
+      '@types/node': 24.10.1
 
   '@types/minimist@1.2.5': {}
 
-  '@types/node@24.7.1':
+  '@types/node@24.10.1':
     dependencies:
-      undici-types: 7.14.0
+      undici-types: 7.16.0
 
   '@types/normalize-package-data@2.4.4': {}
 
   '@types/responselike@1.0.3':
     dependencies:
-      '@types/node': 24.7.1
+      '@types/node': 24.10.1
 
   '@vitest/expect@4.0.10':
     dependencies:
@@ -2386,13 +2386,13 @@ snapshots:
       chai: 6.2.1
       tinyrainbow: 3.0.3
 
-  '@vitest/mocker@4.0.10(vite@7.1.7(@types/node@24.7.1)(jiti@2.4.2))':
+  '@vitest/mocker@4.0.10(vite@7.1.7(@types/node@24.10.1)(jiti@2.4.2))':
     dependencies:
       '@vitest/spy': 4.0.10
       estree-walker: 3.0.3
       magic-string: 0.30.21
     optionalDependencies:
-      vite: 7.1.7(@types/node@24.7.1)(jiti@2.4.2)
+      vite: 7.1.7(@types/node@24.10.1)(jiti@2.4.2)
 
   '@vitest/pretty-format@4.0.10':
     dependencies:
@@ -3011,7 +3011,7 @@ snapshots:
 
   typescript@5.9.3: {}
 
-  undici-types@7.14.0: {}
+  undici-types@7.16.0: {}
 
   validate-npm-package-license@3.0.4:
     dependencies:
@@ -3022,7 +3022,7 @@ snapshots:
     dependencies:
       builtins: 1.0.3
 
-  vite@7.1.7(@types/node@24.7.1)(jiti@2.4.2):
+  vite@7.1.7(@types/node@24.10.1)(jiti@2.4.2):
     dependencies:
       esbuild: 0.25.10
       fdir: 6.5.0(picomatch@4.0.3)
@@ -3031,14 +3031,14 @@ snapshots:
       rollup: 4.52.2
       tinyglobby: 0.2.15
     optionalDependencies:
-      '@types/node': 24.7.1
+      '@types/node': 24.10.1
       fsevents: 2.3.3
       jiti: 2.4.2
 
-  vitest@4.0.10(@types/node@24.7.1)(jiti@2.4.2):
+  vitest@4.0.10(@types/node@24.10.1)(jiti@2.4.2):
     dependencies:
       '@vitest/expect': 4.0.10
-      '@vitest/mocker': 4.0.10(vite@7.1.7(@types/node@24.7.1)(jiti@2.4.2))
+      '@vitest/mocker': 4.0.10(vite@7.1.7(@types/node@24.10.1)(jiti@2.4.2))
       '@vitest/pretty-format': 4.0.10
       '@vitest/runner': 4.0.10
       '@vitest/snapshot': 4.0.10
@@ -3055,10 +3055,10 @@ snapshots:
       tinyexec: 0.3.2
       tinyglobby: 0.2.15
       tinyrainbow: 3.0.3
-      vite: 7.1.7(@types/node@24.7.1)(jiti@2.4.2)
+      vite: 7.1.7(@types/node@24.10.1)(jiti@2.4.2)
       why-is-node-running: 2.3.0
     optionalDependencies:
-      '@types/node': 24.7.1
+      '@types/node': 24.10.1
     transitivePeerDependencies:
       - jiti
       - less
