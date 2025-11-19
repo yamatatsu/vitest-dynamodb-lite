@@ -28,11 +28,11 @@
     "dynalite": "^4.0.0"
   },
   "peerDependencies": {
-    "vitest": "3.x"
+    "vitest": "4.x"
   },
   "devDependencies": {
     "@types/node": "^24.7.1",
     "typescript": "^5.9.3",
-    "vitest": "^3.2.4"
+    "vitest": "^4.0.10"
   }
 }
