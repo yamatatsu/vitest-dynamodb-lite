@@ -11,7 +11,7 @@
     "@aws-sdk/lib-dynamodb": "^3.934.0",
     "@types/node": "^24.10.1",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.10",
+    "vitest": "^4.0.18",
     "vitest-dynamodb-lite": "workspace:../vitest-dynamodb-lite"
   }
 }
