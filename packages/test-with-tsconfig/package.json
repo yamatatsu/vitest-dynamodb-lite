@@ -9,7 +9,7 @@
   "devDependencies": {
     "@aws-sdk/client-dynamodb": "^3.934.0",
     "@aws-sdk/lib-dynamodb": "^3.934.0",
-    "@types/node": "^24.10.1",
+    "@types/node": "^25.1.0",
     "typescript": "^5.9.3",
     "vitest": "^4.0.10",
     "vitest-dynamodb-lite": "workspace:../vitest-dynamodb-lite"
