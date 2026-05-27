@@ -12,44 +12,70 @@ on:
           - minor
           - major
 
+permissions: {}
+
 jobs:
-  publish:
+  # publishジョブから完全に隔離してテストとライセンスチェックを実行する。
+  # id-token: write を持たないため、悪意あるdepのlifecycle scriptが走っても
+  # npm OIDCトークンを /proc/*/mem 経由で抽出できない (Mini Shai-Hulud対策)。
+  test:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
-      id-token: write
+      contents: read
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v5
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
-          node-version: 20
-          registry-url: "https://registry.npmjs.org"
-      - uses: pnpm/action-setup@v4
-        name: Install pnpm
-        id: pnpm-install
+          node-version: 24
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4.4.0
         with:
           version: 11
           run_install: true
       - run: pnpm test
       - run: pnpm jsgl --local ./packages/vitest-dynamodb-lite/
+
+  publish:
+    needs: test
+    runs-on: ubuntu-latest
+    environment: npm-publish
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          # Node 24はnpm 11.12を同梱しており、trusted publishing (npm >=11.5.1) に対応している。
+          # `npm install -g npm@latest` で実行時に取得する経路を無くすため固定版を採用。
+          node-version: 24
+          registry-url: "https://registry.npmjs.org"
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4.4.0
+        with:
+          version: 11
+          run_install: false
+      # `id-token: write` のあるジョブではdepのlifecycle scriptを走らせない。
+      # OIDCトークン窃取の主な侵入口を塞ぐ。
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+
       - name: Configure git user
         run: |
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
+
       - name: Bump package.json version
         id: bump
         run: |
           cd packages/vitest-dynamodb-lite
-          pnpm version ${{ github.event.inputs.bumpType }}
-          echo "VERSION=v$(cat package.json | jq -r '.version')" >> $GITHUB_OUTPUT
+          pnpm version ${{ inputs.bumpType }}
+          echo "VERSION=v$(jq -r '.version' package.json)" >> "$GITHUB_OUTPUT"
+
       - name: Commit and Push
         run: |
           git commit -am "Bump version up to ${{ steps.bump.outputs.VERSION }}"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Tag and Push
         run: |
           git tag ${{ steps.bump.outputs.VERSION }}
@@ -57,35 +83,20 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # We need to update npm for trusted publishing because pnpm publish uses npm under the hood.
-      # see https://docs.npmjs.com/trusted-publishers
-      - name: Update npm
-        run: npm install -g npm@latest
-
       - name: Release
         run: |
           cd packages/vitest-dynamodb-lite
           pnpm publish
 
-      - name: Get the version
-        id: get_version
-        run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
-      - name: Get commit summary
-        id: get_commit_summary
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ steps.bump.outputs.VERSION }}
         run: |
           PREVIOUS_TAG=$(git tag --sort=-creatordate | sed -n 2p)
-          echo "PREVIOUS_TAG: $PREVIOUS_TAG"
-          COMMIT_SUMMARY="$(git log --oneline --pretty=tformat:"%h %s" $PREVIOUS_TAG..${{ github.ref }})"
-          COMMIT_SUMMARY="${COMMIT_SUMMARY//$'\n'/'%0A'}"
-          echo "COMMIT_SUMMARY=$COMMIT_SUMMARY" >> $GITHUB_OUTPUT
-      - name: Create Release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ steps.get_version.outputs.VERSION }}
-          release_name: Release ${{ steps.get_version.outputs.VERSION }}
-          body: |
-            ${{ steps.get_commit_summary.outputs.COMMIT_SUMMARY }}
-          draft: true
-          prerelease: true
+          NOTES=$(git log --oneline --pretty=tformat:"%h %s" "$PREVIOUS_TAG"..HEAD)
+          gh release create "$VERSION" \
+            --title "Release $VERSION" \
+            --notes "$NOTES" \
+            --draft \
+            --prerelease

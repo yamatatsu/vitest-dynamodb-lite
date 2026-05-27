@@ -10,3 +10,11 @@ updates:
         patterns:
           - "@aws-sdk/*"
           - "@smithy/*"
+
+  # SHA固定したActionsの追従用。Dependabotがコメント形式の "# vX.Y.Z" を
+  # 維持しつつSHAを最新版に更新するPRを作る。
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 10
