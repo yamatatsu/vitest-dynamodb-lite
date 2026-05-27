@@ -5,6 +5,10 @@ updates:
     schedule:
       interval: "monthly"
     open-pull-requests-limit: 50
+    # pnpm-workspace.yaml の minimumReleaseAge (7日) に合わせる。
+    # サプライチェーン攻撃で公開されたマルウェアの発見・unpublish猶予期間。
+    cooldown:
+      default-days: 7
     groups:
       aws-sdk:
         patterns:
@@ -18,3 +22,5 @@ updates:
     schedule:
       interval: "monthly"
     open-pull-requests-limit: 10
+    cooldown:
+      default-days: 7
