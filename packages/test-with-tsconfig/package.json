@@ -7,11 +7,12 @@
     "test": "vitest run"
   },
   "devDependencies": {
-    "@aws-sdk/client-dynamodb": "^3.934.0",
-    "@aws-sdk/lib-dynamodb": "^3.934.0",
-    "@types/node": "^24.10.1",
-    "typescript": "^5.9.3",
-    "vitest": "^4.0.10",
+    "@aws-sdk/client-dynamodb": "^3.1050.0",
+    "@aws-sdk/lib-dynamodb": "^3.1050.0",
+    "@types/node": "^25.9.1",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.0",
+    "vitest": "^4.1.7",
     "vitest-dynamodb-lite": "workspace:../vitest-dynamodb-lite"
   }
 }

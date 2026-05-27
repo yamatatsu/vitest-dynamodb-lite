@@ -1,2 +1,13 @@
 packages:
   - 'packages/*'
+
+# Do not adopt new release versions for 7 days (10080 minutes).
+# This provides a grace period for discovering and unpublishing malware introduced through supply chain attacks.
+minimumReleaseAge: 10080
+
+allowBuilds:
+  # Required for native binary placement. Build tool dependencies for vite/vitest.
+  esbuild: true
+  # Used by dynalite only when options.path is specified. For testing, MemoryLevel is used, so this is not reached.
+  # Prebuilt binaries are included in the tarball, so require works.
+  classic-level: false
