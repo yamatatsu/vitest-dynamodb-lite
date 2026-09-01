@@ -23,8 +23,8 @@
     "lib"
   ],
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.1050.0",
-    "@aws-sdk/util-dynamodb": "^3.996.2",
+    "@aws-sdk/client-dynamodb": "^3.1117.0",
+    "@aws-sdk/util-dynamodb": "^3.996.9",
     "dynalite": "^4.0.0"
   },
   "peerDependencies": {
